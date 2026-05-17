@@ -3,10 +3,17 @@
 :root {
   --bg-primary: #ffffff;
   --bg-secondary: #f8f9fa;
+  --bg-blue: #f0f7ff;
+  --bg-green: #f1fbf5;
+  --bg-amber: #fff8e6;
+  --bg-red: #fff2f2;
   --accent: #0071e3;
+  --accent-green: #1f9d55;
+  --accent-amber: #b7791f;
+  --accent-red: #d92d20;
   --text-primary: #1d1d1f;
-  --text-secondary: #86868b;
-  --border: rgba(0, 0, 0, 0.1);
+  --text-secondary: #6b7280;
+  --border: rgba(0, 0, 0, 0.12);
   --font-main: 'Outfit', sans-serif;
   --font-content: 'Inter', sans-serif;
 }
@@ -67,7 +74,7 @@ body {
   font-size: 1.1rem;
   color: var(--text-primary);
   font-weight: 800;
-  letter-spacing: -0.01em;
+  letter-spacing: 0;
   text-align: right;
   max-width: 360px;
 }
@@ -76,21 +83,37 @@ body {
   text-align: center;
 }
 
+.eyebrow {
+  display: inline-block;
+  margin-bottom: 0.9rem;
+  color: var(--accent);
+  font-size: 0.95rem;
+  font-weight: 900;
+}
+
 h1 {
   font-size: clamp(2rem, 5vw, 3.2rem);
   font-weight: 900;
-  letter-spacing: -0.03em;
+  letter-spacing: 0;
   line-height: 1.15;
   margin-bottom: 1.5rem;
   color: var(--text-primary);
   word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+
+h1 span {
+  display: inline;
 }
 
 .subtitle {
+  max-width: 800px;
+  margin: 0 auto;
   font-size: 1.25rem;
   color: var(--text-secondary);
   font-weight: 400;
   word-break: keep-all;
+  overflow-wrap: anywhere;
 }
 
 .lesson-meta {
@@ -118,8 +141,9 @@ section {
 section h2 {
   font-size: clamp(1.4rem, 2.2vw, 1.65rem);
   line-height: 1.15;
-  letter-spacing: -0.02em;
+  letter-spacing: 0;
   word-break: keep-all;
+  overflow-wrap: anywhere;
   max-width: 1050px;
 }
 
@@ -131,6 +155,7 @@ section h2 {
   font-size: 1.12rem;
   line-height: 1.7;
   word-break: keep-all;
+  overflow-wrap: anywhere;
 }
 
 .section-label {
@@ -143,7 +168,7 @@ section h2 {
   font-weight: 900;
   color: #111827;
   text-transform: none;
-  letter-spacing: 0.01em;
+  letter-spacing: 0;
   margin-bottom: 0.9rem;
   display: block;
 }
@@ -167,36 +192,66 @@ section h2 {
   background: linear-gradient(180deg, var(--accent), #22c55e);
 }
 
-.learning-goals-grid {
+.learning-goals-grid,
+.metric-grid,
+.report-blueprint {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
   margin-top: 2rem;
 }
 
-.learning-goal-card {
+.learning-goals-grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.learning-goal-card,
+.metric-card,
+.blueprint-card,
+.note-panel,
+.checklist-panel,
+.closing-panel,
+.prompt-box {
   border: 1px solid var(--border);
   background: var(--bg-secondary);
-  border-radius: 18px;
+  border-radius: 8px;
   padding: 1.35rem;
+}
+
+.learning-goal-card {
   min-height: 230px;
 }
 
-.learning-goal-card span {
+.learning-goal-card span,
+.blueprint-card span,
+.metric-card span,
+.prompt-box strong,
+.note-panel strong,
+.checklist-panel strong,
+.closing-panel strong {
   color: var(--accent);
   font-size: 0.9rem;
   font-weight: 900;
 }
 
-.learning-goal-card h3 {
+.learning-goal-card h3,
+.blueprint-card h3,
+.flow-row h3 {
   font-size: 1.2rem;
   line-height: 1.35;
   margin: 0.9rem 0 0.7rem;
   word-break: keep-all;
+  overflow-wrap: anywhere;
 }
 
 .learning-goal-card p,
-.placeholder-panel p {
+.blueprint-card p,
+.note-panel p,
+.closing-panel p,
+.flow-row p,
+.practice-step p,
+.metric-card p,
+.rubric-row p,
+figcaption {
   color: var(--text-secondary);
   font-family: var(--font-content);
   font-size: 1rem;
@@ -213,8 +268,8 @@ section h2 {
 
 .timeline-step {
   border: 1px solid rgba(0, 113, 227, 0.28);
-  background: #f0f7ff;
-  border-radius: 12px;
+  background: var(--bg-blue);
+  border-radius: 8px;
   padding: 1rem;
 }
 
@@ -230,31 +285,241 @@ section h2 {
   font-weight: 800;
 }
 
-.placeholder-panel {
-  border: 1px solid var(--border);
-  background: var(--bg-secondary);
-  border-radius: 18px;
-  margin-top: 1.5rem;
-  padding: 1.35rem;
+.flow-table {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 2rem;
+  border-top: 1px solid var(--border);
 }
 
-.placeholder-panel strong {
-  display: block;
+.flow-row {
+  display: grid;
+  grid-template-columns: 110px 240px 1fr;
+  gap: 1rem;
+  align-items: start;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.flow-row strong {
   color: var(--accent);
-  font-size: 0.95rem;
-  margin-bottom: 0.4rem;
+  font-weight: 900;
+}
+
+.flow-row h3 {
+  margin: 0;
+}
+
+.image-panel {
+  margin-top: 2rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.image-panel img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.image-panel figcaption {
+  padding: 0.85rem 1rem 1rem;
+  border-top: 1px solid var(--border);
+  background: var(--bg-secondary);
+}
+
+.image-panel.compact {
+  margin-top: 0;
+}
+
+.metric-grid {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.metric-card {
+  min-height: 160px;
+}
+
+.metric-card strong {
+  display: block;
+  margin: 0.5rem 0 0.3rem;
+  font-size: 2rem;
+  line-height: 1.1;
+}
+
+.metric-card.good {
+  background: var(--bg-green);
+  border-color: rgba(31, 157, 85, 0.3);
+}
+
+.metric-card.warn {
+  background: var(--bg-amber);
+  border-color: rgba(183, 121, 31, 0.35);
+}
+
+.metric-card.alert {
+  background: var(--bg-red);
+  border-color: rgba(217, 45, 32, 0.3);
+}
+
+.metric-card.neutral {
+  background: var(--bg-blue);
+  border-color: rgba(0, 113, 227, 0.28);
+}
+
+.two-column {
+  display: grid;
+  grid-template-columns: 1.5fr 0.9fr;
+  gap: 1rem;
+  align-items: stretch;
+  margin-top: 2rem;
+}
+
+.note-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #ffffff;
+}
+
+.note-panel p {
+  margin-top: 0.75rem;
+}
+
+.report-blueprint {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.blueprint-card span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 999px;
+  background: var(--bg-blue);
+}
+
+.practice-ladder {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 2rem;
+  counter-reset: practice;
+}
+
+.practice-step {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 1rem;
+  align-items: center;
+  border-left: 5px solid var(--accent);
+  background: var(--bg-secondary);
+  border-radius: 8px;
+  padding: 1rem 1.2rem;
+}
+
+.practice-step strong {
+  color: var(--accent);
+  font-weight: 900;
+}
+
+.prompt-box {
+  margin-top: 2rem;
+  background: #111827;
+  color: #ffffff;
+  border-color: #111827;
+}
+
+.prompt-box strong {
+  color: #7dd3fc;
+  display: block;
+  margin-bottom: 0.8rem;
+}
+
+.prompt-box pre {
+  white-space: pre-wrap;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+  font-family: var(--font-content);
+  font-size: 0.98rem;
+  line-height: 1.7;
+}
+
+.checklist-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.checklist-panel {
+  background: #ffffff;
+}
+
+.checklist-panel ul {
+  margin-top: 1rem;
+  padding-left: 1.2rem;
+}
+
+.checklist-panel li {
+  margin-bottom: 0.65rem;
+  color: var(--text-secondary);
+  font-family: var(--font-content);
+  line-height: 1.65;
+  word-break: keep-all;
+}
+
+.rubric-table {
+  border-top: 1px solid var(--border);
+}
+
+.rubric-row {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 1rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.rubric-row strong {
+  color: var(--text-primary);
+  font-weight: 900;
+}
+
+.closing-panel {
+  margin-top: 2rem;
+  background: var(--bg-blue);
+  border-color: rgba(0, 113, 227, 0.28);
+}
+
+.closing-panel p {
+  margin-top: 0.6rem;
 }
 
 @media (max-width: 900px) {
   .learning-goals-grid,
-  .lesson-timeline {
+  .lesson-timeline,
+  .metric-grid,
+  .report-blueprint,
+  .two-column,
+  .checklist-layout {
     grid-template-columns: 1fr;
+  }
+
+  .flow-row {
+    grid-template-columns: 1fr;
+    gap: 0.35rem;
   }
 }
 
 @media (max-width: 720px) {
   .app-container {
     padding: 1.2rem;
+    width: 100%;
+    max-width: 390px;
+    margin: 0;
   }
 
   .header-top {
@@ -274,14 +539,50 @@ section h2 {
   }
 
   h1 {
-    font-size: clamp(1.62rem, 8vw, 2.1rem);
+    font-size: clamp(1.55rem, 7.2vw, 1.95rem);
+    word-break: normal;
+  }
+
+  h1 span {
+    display: block;
+  }
+
+  section h2,
+  .section-intro,
+  .learning-goal-card h3,
+  .learning-goal-card p,
+  .blueprint-card h3,
+  .blueprint-card p,
+  .note-panel p,
+  .closing-panel p,
+  .flow-row h3,
+  .flow-row p,
+  .practice-step p,
+  .metric-card p,
+  .rubric-row p,
+  .checklist-panel li,
+  figcaption {
+    word-break: normal;
+    overflow-wrap: anywhere;
   }
 
   .subtitle {
     font-size: 1.05rem;
   }
 
+  .lesson-meta {
+    max-width: 330px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   .teaching-section::before {
     display: none;
+  }
+
+  .practice-step,
+  .rubric-row {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
   }
 }
