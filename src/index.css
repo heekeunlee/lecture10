@@ -103,7 +103,7 @@ h1 {
 }
 
 h1 span {
-  display: inline;
+  display: block;
 }
 
 .subtitle {
@@ -392,6 +392,249 @@ figcaption {
   grid-template-columns: repeat(2, 1fr);
 }
 
+.sample-grid,
+.before-after-grid,
+.report-evidence,
+.failure-grid {
+  display: grid;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.sample-grid,
+.report-evidence {
+  grid-template-columns: 1.5fr 0.9fr;
+}
+
+.data-spec-panel,
+.sample-note,
+.compare-card,
+.report-mock,
+.failure-card,
+.failure-callout {
+  border: 1px solid var(--border);
+  background: var(--bg-secondary);
+  border-radius: 8px;
+  padding: 1.35rem;
+}
+
+.data-spec-panel {
+  overflow: hidden;
+}
+
+.table-head,
+.table-row {
+  display: grid;
+  grid-template-columns: 120px 110px 1.1fr 1fr;
+  gap: 0.75rem;
+  align-items: start;
+}
+
+.table-head {
+  padding-bottom: 0.85rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 0.75rem;
+}
+
+.table-head strong,
+.table-row strong {
+  color: var(--text-primary);
+  font-weight: 900;
+}
+
+.table-row {
+  padding: 0.8rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.table-row span {
+  color: var(--text-secondary);
+  font-family: var(--font-content);
+  line-height: 1.5;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+
+.sample-note {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #ffffff;
+}
+
+.before-after-grid {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.compare-card {
+  min-height: 250px;
+}
+
+.compare-card.before {
+  background: #fff7f2;
+  border-color: rgba(217, 45, 32, 0.22);
+}
+
+.compare-card.after {
+  background: #f1fbf5;
+  border-color: rgba(31, 157, 85, 0.22);
+}
+
+.compare-card span,
+.report-mock-card span,
+.failure-card strong,
+.report-mock-header .report-chip,
+.failure-callout strong {
+  color: var(--accent);
+  font-size: 0.9rem;
+  font-weight: 900;
+}
+
+.compare-card ul {
+  margin-top: 1rem;
+  padding-left: 1.2rem;
+}
+
+.compare-card li {
+  margin-bottom: 0.7rem;
+  color: var(--text-secondary);
+  font-family: var(--font-content);
+  line-height: 1.6;
+}
+
+.benefit-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.benefit-strip div {
+  border: 1px solid var(--border);
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 1rem 1.1rem;
+}
+
+.benefit-strip strong {
+  display: block;
+  color: var(--text-primary);
+  margin-bottom: 0.4rem;
+}
+
+.benefit-strip span {
+  color: var(--text-secondary);
+  font-family: var(--font-content);
+}
+
+.report-mock {
+  background: linear-gradient(180deg, #ffffff 0%, #f7fbff 100%);
+}
+
+.report-mock-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.report-mock-header h3 {
+  margin-top: 0.45rem;
+  font-size: 1.3rem;
+  line-height: 1.25;
+}
+
+.report-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+  background: var(--bg-blue);
+  font-size: 0.85rem;
+}
+
+.report-status {
+  align-self: center;
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: var(--accent-green);
+}
+
+.report-mock-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.report-mock-card {
+  border: 1px solid var(--border);
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.report-mock-card strong {
+  display: block;
+  margin: 0.45rem 0 0.35rem;
+  font-size: 1.9rem;
+  line-height: 1.05;
+}
+
+.report-evidence-chart,
+.report-evidence-actions {
+  border: 1px solid var(--border);
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.report-evidence-actions ol {
+  margin-top: 0.7rem;
+  padding-left: 1.1rem;
+}
+
+.report-evidence-actions li {
+  margin-bottom: 0.55rem;
+  color: var(--text-secondary);
+  font-family: var(--font-content);
+}
+
+.failure-grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.failure-card {
+  background: #ffffff;
+}
+
+.failure-card p {
+  font-family: var(--font-content);
+  line-height: 1.6;
+}
+
+.failure-bad {
+  margin-top: 0.85rem;
+  color: var(--accent-red);
+}
+
+.failure-fix {
+  margin-top: 0.5rem;
+  color: var(--accent-green);
+}
+
+.failure-callout {
+  margin-top: 1rem;
+  background: #f0f7ff;
+  border-color: rgba(0, 113, 227, 0.22);
+}
+
+.failure-callout p {
+  margin-top: 0.55rem;
+}
+
 .blueprint-card span {
   display: inline-flex;
   align-items: center;
@@ -503,14 +746,30 @@ figcaption {
   .lesson-timeline,
   .metric-grid,
   .report-blueprint,
+  .sample-grid,
+  .before-after-grid,
+  .report-evidence,
+  .failure-grid,
+  .benefit-strip,
+  .report-mock-grid,
   .two-column,
   .checklist-layout {
     grid-template-columns: 1fr;
   }
 
+  .table-head,
+  .table-row {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+  }
+
   .flow-row {
     grid-template-columns: 1fr;
     gap: 0.35rem;
+  }
+
+  .report-mock-header {
+    flex-direction: column;
   }
 }
 
@@ -541,10 +800,6 @@ figcaption {
   h1 {
     font-size: clamp(1.55rem, 7.2vw, 1.95rem);
     word-break: normal;
-  }
-
-  h1 span {
-    display: block;
   }
 
   section h2,
@@ -584,5 +839,9 @@ figcaption {
   .rubric-row {
     grid-template-columns: 1fr;
     gap: 0.25rem;
+  }
+
+  .report-mock-card strong {
+    font-size: 1.6rem;
   }
 }

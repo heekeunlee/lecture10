@@ -64,6 +64,76 @@ const reportSections = [
   },
 ];
 
+const sampleDatasets = [
+  {
+    file: 'lot_summary.csv',
+    use: '주간 KPI 요약',
+    columns: 'lot_id, line, yield, rework, scrap',
+    example: 'A24051, L2, 94.8, 1.2, 0.4',
+  },
+  {
+    file: 'defect_log.csv',
+    use: '불량 파레토',
+    columns: 'defect_type, count, week, chamber',
+    example: 'Particle, 41, W-24, ETCH-03',
+  },
+  {
+    file: 'equipment_alarm.csv',
+    use: 'OOC/알람 추적',
+    columns: 'tool, signal, value, timestamp',
+    example: 'ETCH-03, pressure, 1.18, 2026-05-17 09:42',
+  },
+];
+
+const beforeAfter = [
+  {
+    kind: 'before',
+    title: '수동 보고',
+    items: ['엑셀 파일 3개 열기', '차트 캡처 후 붙여넣기', '문장 수동 작성', '회의 직전 숫자 재확인'],
+  },
+  {
+    kind: 'after',
+    title: '자동 보고',
+    items: ['CSV 업로드', 'KPI/차트 자동 계산', 'AI가 해석 초안 작성', 'Markdown/HTML 동시 출력'],
+  },
+];
+
+const reportMock = [
+  {
+    title: '이번 주 핵심',
+    value: '수율 94.8%',
+    note: '전주 대비 +1.6%p, Particle 비중 증가',
+  },
+  {
+    title: 'Top Risk',
+    value: 'ETCH-03',
+    note: '압력 알람 2회, 청소 로그 확인 필요',
+  },
+  {
+    title: 'Next Action',
+    value: '3건',
+    note: '담당자/기한 지정 후 재확인',
+  },
+];
+
+const failureCases = [
+  {
+    title: '숫자 틀림',
+    bad: '전주 대비가 아니라 전월 대비로 계산됨',
+    fix: '비교 기준을 프롬프트와 코드에 동시에 고정',
+  },
+  {
+    title: '과한 확정',
+    bad: '원인을 단정적으로 쓰고 확인 근거를 생략',
+    fix: '가설과 확인 필요 항목을 분리해 서술',
+  },
+  {
+    title: '근거 누락',
+    bad: '요약은 길지만 어느 표에서 왔는지 알 수 없음',
+    fix: '문장마다 출처 지표를 붙이는 규칙 추가',
+  },
+];
+
 const practiceSteps = [
   { label: '입력', text: 'CSV 3개: lot_summary, defect_log, equipment_alarm' },
   { label: '계산', text: '전주 대비 변화율, Top 3 불량, OOC 설비, 위험 등급' },
@@ -224,7 +294,136 @@ function App() {
         </section>
 
         <section className="teaching-section">
-          <span className="section-label">05. 실습: AI 작업지시서 만들기</span>
+          <span className="section-label">05. 실전 데이터 샘플</span>
+          <h2>보고서 자동화는 실제로 어떤 파일을 먹고 어떤 문장을 뱉는지부터 보여줘야 합니다</h2>
+          <p className="section-intro">
+            수강생이 가장 먼저 이해해야 할 것은 입력 파일입니다. 세 개의 CSV만 있어도 주간 보고서의 80%는 자동화할 수 있습니다.
+          </p>
+          <div className="sample-grid">
+            <div className="data-spec-panel">
+              <div className="table-head">
+                <strong>입력 파일</strong>
+                <strong>용도</strong>
+                <strong>주요 컬럼</strong>
+                <strong>샘플 한 줄</strong>
+              </div>
+              {sampleDatasets.map((row) => (
+                <div className="table-row" key={row.file}>
+                  <strong>{row.file}</strong>
+                  <span>{row.use}</span>
+                  <span>{row.columns}</span>
+                  <span>{row.example}</span>
+                </div>
+              ))}
+            </div>
+            <div className="sample-note">
+              <strong>이 표가 중요한 이유</strong>
+              <p>
+                자동 보고서는 데이터의 모양을 알아야 안정적으로 생성됩니다. 파일명, 컬럼명, 예시 한 줄을 먼저 보여주면 AI가 엉뚱한 기준으로 계산하는 일을 줄일 수 있습니다.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section className="teaching-section">
+          <span className="section-label">06. Before / After</span>
+          <h2>자동화의 가치는 기능 수가 아니라 반복 업무가 얼마나 줄었는지로 보여주는 편이 낫습니다</h2>
+          <p className="section-intro">
+            수동 보고와 자동 보고를 같은 화면에서 비교하면 왜 10강이 필요한지 바로 보입니다.
+          </p>
+          <div className="before-after-grid">
+            {beforeAfter.map((panel) => (
+              <article className={`compare-card ${panel.kind}`} key={panel.kind}>
+                <span>{panel.title}</span>
+                <ul>
+                  {panel.items.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </article>
+            ))}
+          </div>
+          <div className="benefit-strip">
+            <div>
+              <strong>시간</strong>
+              <span>480분 → 15분</span>
+            </div>
+            <div>
+              <strong>실수</strong>
+              <span>복붙 오류, 버전 혼선 감소</span>
+            </div>
+            <div>
+              <strong>반복성</strong>
+              <span>주간/월간 보고서 재사용 가능</span>
+            </div>
+          </div>
+        </section>
+
+        <section className="teaching-section">
+          <span className="section-label">07. 완성 보고서 1페이지</span>
+          <h2>보고서 결과물이 어떤 모습인지 먼저 보여주면 수강생은 실습의 끝을 더 정확히 이해합니다</h2>
+          <p className="section-intro">
+            아래 목업은 실제 회의에서 1페이지로 배포할 수 있는 구성입니다. 상단 KPI, 중앙 근거, 하단 액션으로 읽히는 흐름을 유지합니다.
+          </p>
+          <div className="report-mock">
+            <div className="report-mock-header">
+              <div>
+                <span className="report-chip">Weekly Report</span>
+                <h3>5월 3주차 공정 운영 요약</h3>
+              </div>
+              <div className="report-status">Auto-generated</div>
+            </div>
+            <div className="report-mock-grid">
+              {reportMock.map((item) => (
+                <article className="report-mock-card" key={item.title}>
+                  <span>{item.title}</span>
+                  <strong>{item.value}</strong>
+                  <p>{item.note}</p>
+                </article>
+              ))}
+            </div>
+            <div className="report-evidence">
+              <div className="report-evidence-chart">
+                <strong>Evidence</strong>
+                <p>수율 추이, 파레토, 알람 로그가 한 장에 묶여 있어 회의 중 근거 추적이 쉽습니다.</p>
+              </div>
+              <div className="report-evidence-actions">
+                <strong>Action Items</strong>
+                <ol>
+                  <li>ETCH-03 압력 로그 추가 점검</li>
+                  <li>Particle 불량 lot 재분류</li>
+                  <li>다음 주 보고서 비교 기준 고정</li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="teaching-section">
+          <span className="section-label">08. 실패 사례와 검증</span>
+          <h2>실전에서는 잘 만든 초안보다 잘못된 초안을 빨리 찾아내는 능력이 더 중요합니다</h2>
+          <p className="section-intro">
+            자동 보고는 편하지만, 검증 기준이 없으면 오류도 빠르게 퍼집니다. 아래는 가장 흔한 실패 유형입니다.
+          </p>
+          <div className="failure-grid">
+            {failureCases.map((item) => (
+              <article className="failure-card" key={item.title}>
+                <strong>{item.title}</strong>
+                <p className="failure-bad">Bad: {item.bad}</p>
+                <p className="failure-fix">Fix: {item.fix}</p>
+              </article>
+            ))}
+          </div>
+          <div className="failure-callout">
+            <strong>검증 규칙</strong>
+            <p>
+              계산 기준, 비교 기간, 단위, 담당자, 출처를 보고서 초안 생성 직전에 다시 명시합니다. 이 규칙 하나만 제대로 넣어도 실무 품질이 크게 올라갑니다.
+            </p>
+          </div>
+        </section>
+
+        <section className="teaching-section">
+          <span className="section-label">09. 실습: AI 작업지시서 만들기</span>
           <h2>실습의 핵심은 “보고서를 만들어줘”가 아니라 입력, 계산, 시각화, 서술, 검증을 분리해서 지시하는 것입니다</h2>
           <p className="section-intro">
             아래 5단계를 한 번에 지시하면 AI가 임의로 판단하기 쉽습니다. 각 단계의 책임을 나누면 수강생은 코드 생성 결과를 검토하고 수정하기 쉬워집니다.
@@ -250,7 +449,7 @@ function App() {
         </section>
 
         <section className="teaching-section">
-          <span className="section-label">06. 검증 기준과 마무리</span>
+          <span className="section-label">10. 검증 기준과 마무리</span>
           <h2>보고서 자동화의 품질은 예쁜 화면이 아니라 회의에서 바로 의사결정에 쓰일 수 있는지로 판단합니다</h2>
           <p className="section-intro">
             수강생은 자동 생성 결과를 그대로 제출하지 않습니다. 숫자, 근거, 문장, 다음 액션을 검증한 뒤에만 공유하도록 마무리합니다.
