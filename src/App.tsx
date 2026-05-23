@@ -1,4 +1,5 @@
 import BackgroundReports from './BackgroundReports';
+import MarkdownHtmlExplainer from './MarkdownHtmlExplainer';
 const basePath = import.meta.env.BASE_URL;
 
 const lessonGoals = [
@@ -485,10 +486,78 @@ function App() {
               </article>
             ))}
           </div>
-          <figure className="image-panel">
-            <img src={`${basePath}images/report_template.png`} alt="Markdown과 HTML 보고서 템플릿 구성 예시" />
-            <figcaption>같은 입력 데이터에서 Markdown 초안과 HTML 공유 페이지가 함께 생성되는 구조입니다.</figcaption>
-          </figure>
+                    <div style={{ background: 'white', padding: '2rem', borderRadius: '12px', border: '1px solid #e2e8f0', boxShadow: '0 4px 6px -1px rgba(0,0,0,0.05)', marginTop: '2.5rem' }}>
+            <h3 style={{ margin: '0 0 0.5rem 0', fontSize: '1.5rem', color: '#0f172a' }}>하나의 원천 데이터, 두 가지 형식의 보고서 (One Source, Two Formats)</h3>
+            <p style={{ margin: '0 0 2rem 0', color: '#64748b', fontSize: '0.95rem' }}>고정된 분석 결과가 Markdown 초안과 공유용 HTML 페이지 양쪽에 모두 공급됩니다.</p>
+            
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '1rem', marginBottom: '3rem' }}>
+              {/* Input Data */}
+              <div style={{ width: '220px', border: '2px solid #3b82f6', borderRadius: '12px', padding: '1.5rem', textAlign: 'center', background: '#eff6ff' }}>
+                <div style={{ fontSize: '1.2rem', fontWeight: 'bold', color: '#1e3a8a', marginBottom: '0.5rem' }}>입력 데이터</div>
+                <div style={{ fontSize: '0.9rem', color: '#64748b' }}>CSV + 수동 메모</div>
+              </div>
+              
+              <div style={{ color: '#94a3b8', fontSize: '1.5rem' }}>➔</div>
+              
+              {/* Report Engine */}
+              <div style={{ width: '240px', border: '2px solid #22c55e', borderRadius: '12px', padding: '1.5rem', textAlign: 'center', background: '#f0fdf4' }}>
+                <div style={{ fontSize: '1.2rem', fontWeight: 'bold', color: '#14532d', marginBottom: '0.5rem' }}>보고서 엔진</div>
+                <div style={{ fontSize: '0.9rem', color: '#64748b' }}>지표 + 차트 + LLM 텍스트</div>
+              </div>
+              
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', marginLeft: '1rem' }}>
+                <div style={{ color: '#94a3b8', fontSize: '1.5rem', transform: 'rotate(-30deg) translateY(15px)' }}>➔</div>
+                <div style={{ color: '#94a3b8', fontSize: '1.5rem', transform: 'rotate(30deg) translateY(-15px)' }}>➔</div>
+              </div>
+              
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+                {/* Markdown */}
+                <div style={{ width: '220px', border: '2px solid #d97706', borderRadius: '12px', padding: '1.2rem', textAlign: 'center', background: '#fffbeb' }}>
+                  <div style={{ fontSize: '1.2rem', fontWeight: 'bold', color: '#92400e', marginBottom: '0.25rem' }}>Markdown</div>
+                  <div style={{ fontSize: '0.85rem', color: '#64748b' }}>리뷰용 초안 (Review draft)</div>
+                </div>
+                {/* HTML */}
+                <div style={{ width: '220px', border: '2px solid #ef4444', borderRadius: '12px', padding: '1.2rem', textAlign: 'center', background: '#fef2f2' }}>
+                  <div style={{ fontSize: '1.2rem', fontWeight: 'bold', color: '#991b1b', marginBottom: '0.25rem' }}>HTML</div>
+                  <div style={{ fontSize: '0.85rem', color: '#64748b' }}>팀 공유용 (Team sharing)</div>
+                </div>
+              </div>
+            </div>
+            
+            {/* 3 Columns Below */}
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2rem', borderTop: '1px solid #e2e8f0', paddingTop: '2rem' }}>
+              <div>
+                <h4 style={{ fontSize: '1.1rem', color: '#334155', marginBottom: '1rem' }}>필수 구성 요소</h4>
+                <ul style={{ color: '#64748b', fontSize: '0.95rem', paddingLeft: '1.2rem', margin: 0, display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                  <li>요약 (Summary)</li>
+                  <li>KPI 스냅샷 (KPI snapshot)</li>
+                  <li>근거 차트 (Evidence charts)</li>
+                  <li>조치 계획 (Action items)</li>
+                </ul>
+              </div>
+              <div>
+                <h4 style={{ fontSize: '1.1rem', color: '#334155', marginBottom: '1rem' }}>검증 규칙</h4>
+                <ul style={{ color: '#64748b', fontSize: '0.95rem', paddingLeft: '1.2rem', margin: 0, display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                  <li>출처 없는 숫자 금지</li>
+                  <li>단정짓기보다는 가설 형태로</li>
+                  <li>담당자 및 기한 명시</li>
+                </ul>
+              </div>
+              <div>
+                <h4 style={{ fontSize: '1.1rem', color: '#334155', marginBottom: '1rem' }}>최종 산출물 요건</h4>
+                <ul style={{ color: '#64748b', fontSize: '0.95rem', paddingLeft: '1.2rem', margin: 0, display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                  <li>3분 내 읽기 가능</li>
+                  <li>회의 자료로 즉시 활용 가능</li>
+                  <li>추적 가능한 다음 단계</li>
+                </ul>
+              </div>
+            </div>
+            <div style={{ textAlign: 'center', marginTop: '2rem', fontSize: '0.85rem', color: '#94a3b8', background: '#f8fafc', padding: '0.75rem', borderRadius: '6px' }}>
+              같은 입력 데이터에서 Markdown 초안과 HTML 공유 페이지가 함께 생성되는 구조입니다.
+            </div>
+          </div>
+          
+          <MarkdownHtmlExplainer />
         </section>
 
         <section className="teaching-section">
