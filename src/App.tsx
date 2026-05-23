@@ -237,6 +237,23 @@ function App() {
                 </div>
               </div>
 
+              {/* Trend Chart */}
+              <div style={{ marginBottom: '1rem' }}>
+                <div style={{ fontSize: '0.85rem', color: '#475569', marginBottom: '0.5rem', fontWeight: 'bold' }}>일별 Particle 불량 발생 추이</div>
+                <div style={{ height: '80px', width: '100%', background: '#f8fafc', borderRadius: '6px', padding: '0.5rem 0.5rem 1.5rem 0.5rem', position: 'relative', border: '1px solid #f1f5f9' }}>
+                  <svg viewBox="0 0 100 40" preserveAspectRatio="none" style={{ width: '100%', height: '100%', overflow: 'visible' }}>
+                    <path d="M 0,35 L 20,32 L 40,30 L 60,34 L 80,10 L 100,5" fill="none" stroke="#ef4444" strokeWidth="2" strokeLinejoin="round" />
+                    <circle cx="80" cy="10" r="2" fill="#ef4444" />
+                    <circle cx="100" cy="5" r="2" fill="#ef4444" />
+                    <path d="M 0,35 L 20,32 L 40,30 L 60,34 L 80,10 L 100,5 L 100,40 L 0,40 Z" fill="rgba(239, 68, 68, 0.1)" />
+                  </svg>
+                  <div style={{ position: 'absolute', top: '0.5rem', right: '0.5rem', fontSize: '0.7rem', color: '#ef4444', fontWeight: 'bold', background: 'white', padding: '2px 4px', borderRadius: '4px', border: '1px solid #fca5a5' }}>야간조 급증</div>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.65rem', color: '#64748b', position: 'absolute', bottom: '4px', left: '0.5rem', right: '0.5rem' }}>
+                    <span>월</span><span>화</span><span>수</span><span>목(주간)</span><span style={{color:'#ef4444', fontWeight:'bold'}}>목(야간)</span><span style={{color:'#ef4444', fontWeight:'bold'}}>금</span>
+                  </div>
+                </div>
+              </div>
+
               <div style={{ background: '#f8fafc', padding: '0.85rem', borderRadius: '6px', fontSize: '0.9rem', color: '#334155', border: '1px solid #e2e8f0' }}>
                 <div style={{ marginBottom: '0.5rem' }}><strong>⚡ 즉각 조치:</strong> T-04 설비 가동 중단 후 이송 롤러 교체 (진행중)</div>
                 <div><strong>💡 향후 계획:</strong> 주말 PM 시 전체 Track 설비 롤러 마모도 일제 점검</div>
@@ -262,6 +279,28 @@ function App() {
                 </div>
                 <div style={{ width: '100%', height: '8px', background: '#dcfce7', borderRadius: '99px', overflow: 'hidden' }}>
                   <div style={{ width: '95.4%', height: '100%', background: '#16a34a', borderRadius: '99px' }}></div>
+                </div>
+              </div>
+
+              {/* Yield Trend Chart */}
+              <div style={{ marginBottom: '1.25rem' }}>
+                <div style={{ fontSize: '0.85rem', color: '#475569', marginBottom: '0.5rem', fontWeight: 'bold' }}>주차별 수율 추이 (Target: 95.0%)</div>
+                <div style={{ height: '80px', width: '100%', background: '#f8fafc', borderRadius: '6px', padding: '0.5rem 0.5rem 1.5rem 0.5rem', position: 'relative', border: '1px solid #f1f5f9' }}>
+                  <svg viewBox="0 0 100 40" preserveAspectRatio="none" style={{ width: '100%', height: '100%', overflow: 'visible' }}>
+                    {/* Target Line */}
+                    <line x1="0" y1="25" x2="100" y2="25" stroke="#94a3b8" strokeWidth="1" strokeDasharray="2,2" />
+                    <text x="0" y="22" fontSize="5" fill="#64748b">95.0%</text>
+                    {/* Yield Line */}
+                    <path d="M 0,30 L 33,22 L 66,15 L 100,10" fill="none" stroke="#10b981" strokeWidth="2" strokeLinejoin="round" />
+                    <circle cx="0" cy="30" r="2" fill="#10b981" />
+                    <circle cx="33" cy="22" r="2" fill="#10b981" />
+                    <circle cx="66" cy="15" r="2" fill="#10b981" />
+                    <circle cx="100" cy="10" r="2" fill="#10b981" />
+                    <path d="M 0,30 L 33,22 L 66,15 L 100,10 L 100,40 L 0,40 Z" fill="rgba(16, 185, 129, 0.1)" />
+                  </svg>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.65rem', color: '#64748b', position: 'absolute', bottom: '4px', left: '0.5rem', right: '0.5rem' }}>
+                    <span>1주차</span><span>2주차</span><span>3주차</span><span>4주차</span>
+                  </div>
                 </div>
               </div>
 
