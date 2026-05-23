@@ -202,45 +202,103 @@ function App() {
           
           <div className="report-cards-container" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
             {/* 주간 보고서 */}
-            <article className="report-card" style={{ background: 'white', padding: '1.5rem', borderRadius: '8px', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)', borderTop: '4px solid #10b981' }}>
+            <article className="report-card" style={{ background: 'white', padding: '1.5rem', borderRadius: '8px', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)', borderTop: '4px solid #ef4444' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem', borderBottom: '1px solid #e2e8f0', paddingBottom: '0.5rem' }}>
-                <span style={{ fontWeight: 'bold', color: '#10b981' }}>주간 보고 (Weekly Report)</span>
+                <span style={{ fontWeight: 'bold', color: '#ef4444', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                  <span style={{ display: 'inline-block', width: '8px', height: '8px', borderRadius: '50%', background: '#ef4444', boxShadow: '0 0 8px #ef4444' }}></span>
+                  주간 이상 진단 (Weekly Alert)
+                </span>
                 <span style={{ fontSize: '0.85rem', color: '#64748b' }}>2026.05 3주차</span>
               </div>
-              <h3 style={{ fontSize: '1.1rem', margin: '0 0 1rem 0', color: '#1e293b' }}>[보고] Photo 공정 Particle 불량 급증 원인 및 조치 결과</h3>
-              <ul style={{ paddingLeft: '1.5rem', color: '#334155', fontSize: '0.95rem', lineHeight: '1.6', margin: 0 }}>
-                <li><strong>현상:</strong> 5/18(화) 야간조부터 Pattern 불량 및 Particle 성 불량 44% 급증</li>
-                <li><strong>데이터 분석:</strong>
-                  <ul>
-                    <li>파레토 분석 결과 Particle 1위 (점유율 35.7%)</li>
-                    <li>설비별 분석 시 특정 Track 설비(T-04) 세정 구간에서 집중 발생</li>
-                  </ul>
-                </li>
-                <li><strong>조치 사항:</strong> T-04 설비 가동 중단 후 이송 롤러 및 Nozzle 교체 (5/19 조치 완료)</li>
-                <li><strong>향후 계획:</strong> 주말 PM 시 전체 Track 설비 롤러 마모도 점검 (조치 난이도: 하)</li>
-              </ul>
+              <h3 style={{ fontSize: '1.1rem', margin: '0 0 1rem 0', color: '#1e293b' }}>[긴급] Photo 공정 수율 저하 원인 분석</h3>
+              
+              {/* Data Dashboard */}
+              <div style={{ display: 'flex', gap: '1rem', marginBottom: '1rem' }}>
+                <div style={{ flex: 1, background: '#fef2f2', padding: '0.75rem', borderRadius: '6px', borderLeft: '3px solid #ef4444' }}>
+                  <div style={{ fontSize: '0.8rem', color: '#991b1b', fontWeight: 'bold', marginBottom: '0.25rem' }}>주간 수율</div>
+                  <div style={{ fontSize: '1.25rem', fontWeight: '900', color: '#b91c1c' }}>93.8% <span style={{ fontSize: '0.8rem', color: '#ef4444', marginLeft: '4px' }}>▼ 1.2%p</span></div>
+                </div>
+                <div style={{ flex: 1, background: '#fffbeb', padding: '0.75rem', borderRadius: '6px', borderLeft: '3px solid #f59e0b' }}>
+                  <div style={{ fontSize: '0.8rem', color: '#92400e', fontWeight: 'bold', marginBottom: '0.25rem' }}>Particle 불량</div>
+                  <div style={{ fontSize: '1.25rem', fontWeight: '900', color: '#b45309' }}>342건 <span style={{ fontSize: '0.8rem', color: '#ef4444', marginLeft: '4px' }}>▲ 44%</span></div>
+                </div>
+              </div>
+
+              {/* Data Visualization */}
+              <div style={{ marginBottom: '1rem' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '0.25rem' }}>
+                  <span style={{ fontSize: '0.85rem', color: '#475569', fontWeight: 'bold' }}>발생 설비 분포</span>
+                  <span style={{ fontSize: '0.75rem', color: '#ef4444', fontWeight: 'bold' }}>T-04 설비 집중 발생!</span>
+                </div>
+                <div style={{ display: 'flex', height: '1.5rem', background: '#f1f5f9', borderRadius: '4px', overflow: 'hidden' }}>
+                  <div style={{ width: '65%', background: '#ef4444', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontSize: '0.75rem', fontWeight: 'bold' }}>T-04 (65%)</div>
+                  <div style={{ width: '20%', background: '#f59e0b', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontSize: '0.75rem', fontWeight: 'bold' }}>T-02</div>
+                  <div style={{ width: '15%', background: '#94a3b8', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontSize: '0.75rem', fontWeight: 'bold' }}>기타</div>
+                </div>
+              </div>
+
+              <div style={{ background: '#f8fafc', padding: '0.85rem', borderRadius: '6px', fontSize: '0.9rem', color: '#334155', border: '1px solid #e2e8f0' }}>
+                <div style={{ marginBottom: '0.5rem' }}><strong>⚡ 즉각 조치:</strong> T-04 설비 가동 중단 후 이송 롤러 교체 (진행중)</div>
+                <div><strong>💡 향후 계획:</strong> 주말 PM 시 전체 Track 설비 롤러 마모도 일제 점검</div>
+              </div>
             </article>
 
             {/* 월간 보고서 */}
             <article className="report-card" style={{ background: 'white', padding: '1.5rem', borderRadius: '8px', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)', borderTop: '4px solid #3b82f6' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem', borderBottom: '1px solid #e2e8f0', paddingBottom: '0.5rem' }}>
-                <span style={{ fontWeight: 'bold', color: '#3b82f6' }}>월간 보고 (Monthly Report)</span>
+                <span style={{ fontWeight: 'bold', color: '#3b82f6', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                  <span style={{ display: 'inline-block', width: '8px', height: '8px', borderRadius: '50%', background: '#3b82f6' }}></span>
+                  월간 종합 리뷰 (Monthly Review)
+                </span>
                 <span style={{ fontSize: '0.85rem', color: '#64748b' }}>2026년 4월 종합</span>
               </div>
-              <h3 style={{ fontSize: '1.1rem', margin: '0 0 1rem 0', color: '#1e293b' }}>[월간] 공정 수율 현황 및 고질 불량 개선 경과</h3>
-              <ul style={{ paddingLeft: '1.5rem', color: '#334155', fontSize: '0.95rem', lineHeight: '1.6', margin: 0 }}>
-                <li><strong>수율 현황:</strong> 4월 평균 수율 95.4% (목표 95.0% 대비 +0.4%p 초과 달성)</li>
-                <li><strong>주요 불량(Pareto Top 3):</strong>
-                  <ol style={{ paddingLeft: '1rem', marginTop: '0.25rem', marginBottom: '0.25rem' }}>
-                    <li>Particle (32%) - 지속적인 개선 활동으로 전월 대비 5% 감소</li>
-                    <li>Scratch (21%) - 이송 카세트 노후화가 주 원인</li>
-                    <li>CD Drift (18%) - 최근 2주간 4위에서 3위로 상승 (⚠️<strong>위험 감지</strong>)</li>
-                  </ol>
-                </li>
-                <li><strong>액션 매트릭스:</strong> 영향도는 높으나 조치 난이도가 낮은 'Scratch' 불량 개선을 위해 익월 카세트 전면 교체 품의 예정</li>
-              </ul>
+              <h3 style={{ fontSize: '1.1rem', margin: '0 0 1rem 0', color: '#1e293b' }}>[월간] 공정 수율 현황 및 고질 불량 모니터링</h3>
+              
+              {/* Data Dashboard */}
+              <div style={{ marginBottom: '1.25rem', background: '#f0fdf4', padding: '0.85rem', borderRadius: '6px', border: '1px solid #bbf7d0' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.5rem' }}>
+                  <span style={{ fontSize: '0.85rem', fontWeight: 'bold', color: '#166534' }}>월간 평균 수율 (목표 95.0%)</span>
+                  <span style={{ fontSize: '1.1rem', fontWeight: '900', color: '#15803d' }}>95.4% <span style={{ fontSize: '0.75rem', background: '#22c55e', color: 'white', padding: '2px 6px', borderRadius: '99px', verticalAlign: 'middle', marginLeft: '4px' }}>초과 달성</span></span>
+                </div>
+                <div style={{ width: '100%', height: '8px', background: '#dcfce7', borderRadius: '99px', overflow: 'hidden' }}>
+                  <div style={{ width: '95.4%', height: '100%', background: '#16a34a', borderRadius: '99px' }}></div>
+                </div>
+              </div>
+
+              {/* Pareto Mini Chart */}
+              <div style={{ marginBottom: '1.25rem' }}>
+                <div style={{ fontSize: '0.85rem', color: '#475569', marginBottom: '0.75rem', fontWeight: 'bold' }}>Pareto Top 3 불량 점유율 변화</div>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                    <span style={{ width: '60px', fontSize: '0.8rem', color: '#475569', fontWeight: 'bold' }}>Particle</span>
+                    <div style={{ flex: 1, height: '16px', background: '#f1f5f9', borderRadius: '4px', overflow: 'hidden' }}>
+                      <div style={{ width: '32%', height: '100%', background: '#3b82f6', display: 'flex', alignItems: 'center', paddingLeft: '4px', fontSize: '0.65rem', color: 'white', fontWeight: 'bold' }}>32%</div>
+                    </div>
+                    <span style={{ width: '45px', fontSize: '0.8rem', color: '#10b981', textAlign: 'right', fontWeight: 'bold' }}>▼ 5%</span>
+                  </div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                    <span style={{ width: '60px', fontSize: '0.8rem', color: '#475569', fontWeight: 'bold' }}>Scratch</span>
+                    <div style={{ flex: 1, height: '16px', background: '#f1f5f9', borderRadius: '4px', overflow: 'hidden' }}>
+                      <div style={{ width: '21%', height: '100%', background: '#94a3b8', display: 'flex', alignItems: 'center', paddingLeft: '4px', fontSize: '0.65rem', color: 'white', fontWeight: 'bold' }}>21%</div>
+                    </div>
+                    <span style={{ width: '45px', fontSize: '0.8rem', color: '#94a3b8', textAlign: 'right' }}>-</span>
+                  </div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                    <span style={{ width: '60px', fontSize: '0.8rem', color: '#b91c1c', fontWeight: 'bold' }}>CD Drift</span>
+                    <div style={{ flex: 1, height: '16px', background: '#f1f5f9', borderRadius: '4px', overflow: 'hidden' }}>
+                      <div style={{ width: '18%', height: '100%', background: '#f59e0b', display: 'flex', alignItems: 'center', paddingLeft: '4px', fontSize: '0.65rem', color: 'white', fontWeight: 'bold' }}>18%</div>
+                    </div>
+                    <span style={{ width: '45px', fontSize: '0.8rem', color: '#ef4444', textAlign: 'right', fontWeight: 'bold' }}>▲ 위험</span>
+                  </div>
+                </div>
+              </div>
+
+              <div style={{ background: '#f8fafc', padding: '0.85rem', borderRadius: '6px', fontSize: '0.9rem', color: '#334155', border: '1px solid #e2e8f0' }}>
+                <strong>🎯 Action Matrix 결론:</strong> 영향도는 높으나 조치 난이도가 낮은 'Scratch' 개선을 위해 익월 카세트 전면 교체 우선 진행
+              </div>
             </article>
           </div>
+
           <div style={{ background: '#eff6ff', padding: '1rem', borderRadius: '8px', marginTop: '1.5rem', borderLeft: '4px solid #2563eb', fontSize: '0.95rem', color: '#1e3a8a', lineHeight: '1.5' }}>
             <strong>💡 강사의 한마디:</strong> "우리가 지금부터 파이썬과 AI로 만들 결과물이 바로 <strong>이런 보고서에 들어갈 핵심 차트와 데이터 근거들</strong>입니다. 차트를 그리는 것에 그치지 않고, 조치 계획을 세우는 것까지가 엔지니어의 진짜 역할입니다."
           </div>
