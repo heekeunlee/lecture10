@@ -368,6 +368,45 @@ function App() {
         </section>
 
         <section className="teaching-section">
+          <span className="section-label">01-2. 백그라운드 지식</span>
+          <h2>엔지니어의 보고서는 목적에 따라 크게 5가지로 나뉩니다</h2>
+          <p className="section-intro">
+            앞서 본 주간/월간 보고서가 공정의 <strong>건강 검진 결과표</strong>라면, 현업에서는 상황에 따라 긴급 대응이나 통계적 증명을 위한 다양한 보고서를 작성합니다. 본 강의에서는 이 중 반복 업무 비중이 가장 높은 '주간/월간 모니터링 보고'의 자동화에 집중합니다.
+          </p>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem', marginTop: '2rem' }}>
+            <article style={{ background: '#f8fafc', padding: '1.5rem', borderRadius: '8px', borderLeft: '4px solid #64748b' }}>
+              <span style={{ fontSize: '0.85rem', color: '#64748b', fontWeight: 'bold' }}>매일 아침 (Daily)</span>
+              <h3 style={{ margin: '0.5rem 0', color: '#0f172a' }}>일일 교대/현황 보고</h3>
+              <p style={{ fontSize: '0.95rem', color: '#334155', lineHeight: '1.5', margin: 0 }}>전일 수율, 생산량, 주요 설비 알람을 다음 근무자에게 인수인계하는 가장 빈번하고 간결한 텍스트 위주 보고입니다.</p>
+            </article>
+
+            <article style={{ background: '#fff1f2', padding: '1.5rem', borderRadius: '8px', borderLeft: '4px solid #ef4444' }}>
+              <span style={{ fontSize: '0.85rem', color: '#ef4444', fontWeight: 'bold' }}>사고 발생 시 (Emergency)</span>
+              <h3 style={{ margin: '0.5rem 0', color: '#991b1b' }}>이상 발생 보고 (Trouble Report)</h3>
+              <p style={{ fontSize: '0.95rem', color: '#7f1d1d', lineHeight: '1.5', margin: 0 }}>수율 급락 등 문제 발생 시 피해 확산을 막기 위해 2~4시간 내에 1차 조치와 현상을 긴급 전파하는 <strong>응급 수술 기록지</strong> 역할을 합니다.</p>
+            </article>
+
+            <article style={{ background: '#f0fdfa', padding: '1.5rem', borderRadius: '8px', borderLeft: '4px solid #0d9488' }}>
+              <span style={{ fontSize: '0.85rem', color: '#0d9488', fontWeight: 'bold' }}>사고 수습 후 (Post-mortem)</span>
+              <h3 style={{ margin: '0.5rem 0', color: '#115e59' }}>개선 대책 보고 (8D Report)</h3>
+              <p style={{ fontSize: '0.95rem', color: '#134e4a', lineHeight: '1.5', margin: 0 }}>임시방편이 아닌 근본 원인(Root Cause)을 규명하고, 시스템적 재발 방지 대책을 8단계로 수립하는 매우 무거운 심층 보고서입니다.</p>
+            </article>
+
+            <article style={{ background: '#fffbeb', padding: '1.5rem', borderRadius: '8px', borderLeft: '4px solid #f59e0b' }}>
+              <span style={{ fontSize: '0.85rem', color: '#d97706', fontWeight: 'bold' }}>조건 변경 시 (A/B Test)</span>
+              <h3 style={{ margin: '0.5rem 0', color: '#92400e' }}>조건 변경 보고 (ECN Report)</h3>
+              <p style={{ fontSize: '0.95rem', color: '#78350f', lineHeight: '1.5', margin: 0 }}>레시피나 파츠 변경 시, 스플릿 테스트를 통해 통계적으로 품질에 악영향이 없음을 입증하고 상부의 승인을 받는 평가 보고입니다.</p>
+            </article>
+
+            <article style={{ background: '#f0fdf4', padding: '1.5rem', borderRadius: '8px', borderLeft: '4px solid #22c55e' }}>
+              <span style={{ fontSize: '0.85rem', color: '#16a34a', fontWeight: 'bold' }}>정기 평가 시 (Quarterly/Half)</span>
+              <h3 style={{ margin: '0.5rem 0', color: '#166534' }}>원가 절감/성과 보고</h3>
+              <p style={{ fontSize: '0.95rem', color: '#14532d', lineHeight: '1.5', margin: 0 }}>설비 소모품 수명 연장이나 가스 사용량 최적화를 통해 해당 파트가 얼마의 비용을 절감했는지 증명하는 성과 평가용 보고입니다.</p>
+            </article>
+          </div>
+        </section>
+
+        <section className="teaching-section">
           <span className="section-label">02. 1~9강 흐름과 10강의 위치</span>
           <h2>10강은 별도 기능을 하나 더 배우는 시간이 아니라, 지금까지 만든 기능을 보고 체계로 연결하는 전환점입니다</h2>
           <p className="section-intro">
