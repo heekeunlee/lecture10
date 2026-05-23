@@ -391,10 +391,54 @@ function App() {
               </div>
             ))}
           </div>
-          <figure className="image-panel">
-            <img src={`${basePath}images/report_pipeline.png`} alt="1강부터 10강까지 이어지는 보고서 자동화 파이프라인" />
-            <figcaption>Python으로 생성한 파이프라인 그림: 데이터 정리, 분석, 해석, 보고서 출력이 한 흐름으로 이어집니다.</figcaption>
-          </figure>
+          <div style={{ background: 'white', padding: '2rem', borderRadius: '12px', border: '1px solid #e2e8f0', boxShadow: '0 4px 6px -1px rgba(0,0,0,0.05)', marginTop: '2.5rem', overflowX: 'auto' }}>
+            <h3 style={{ margin: '0 0 0.5rem 0', fontSize: '1.5rem', color: '#0f172a' }}>강의 01-10 학습 파이프라인 (Learning Pipeline)</h3>
+            <p style={{ margin: '0 0 2rem 0', color: '#64748b', fontSize: '0.95rem' }}>프롬프팅, 데이터 정제, 시각화, 문서 요약, 그리고 보고서 생성이 하나의 반복 가능한 워크플로우로 완성됩니다.</p>
+            
+            <div style={{ display: 'flex', alignItems: 'center', minWidth: '800px', marginBottom: '2rem' }}>
+              {/* Box 1 */}
+              <div style={{ flex: 1, border: '2px solid #3b82f6', borderRadius: '12px', padding: '1.5rem 0.5rem', textAlign: 'center', background: '#eff6ff', position: 'relative' }}>
+                <div style={{ fontSize: '1.1rem', fontWeight: 'bold', color: '#1e3a8a', marginBottom: '0.5rem' }}>AI 브리핑</div>
+                <div style={{ fontSize: '0.85rem', color: '#64748b' }}>01-02강 | 프롬프트 규칙</div>
+                <div style={{ position: 'absolute', right: '-10px', top: '50%', transform: 'translateY(-50%)', color: '#94a3b8', zIndex: 10 }}>▶</div>
+              </div>
+              
+              {/* Box 2 */}
+              <div style={{ flex: 1, border: '2px solid #0ea5e9', borderRadius: '12px', padding: '1.5rem 0.5rem', textAlign: 'center', background: '#f0f9ff', position: 'relative', marginLeft: '-4px' }}>
+                <div style={{ fontSize: '1.1rem', fontWeight: 'bold', color: '#0c4a6e', marginBottom: '0.5rem' }}>데이터 전처리</div>
+                <div style={{ fontSize: '0.85rem', color: '#64748b' }}>03-04강 | 병합 + 정제</div>
+                <div style={{ position: 'absolute', right: '-10px', top: '50%', transform: 'translateY(-50%)', color: '#94a3b8', zIndex: 10 }}>▶</div>
+              </div>
+              
+              {/* Box 3 */}
+              <div style={{ flex: 1, border: '2px solid #22c55e', borderRadius: '12px', padding: '1.5rem 0.5rem', textAlign: 'center', background: '#f0fdf4', position: 'relative', marginLeft: '-4px' }}>
+                <div style={{ fontSize: '1.1rem', fontWeight: 'bold', color: '#14532d', marginBottom: '0.5rem' }}>시각화 도출</div>
+                <div style={{ fontSize: '0.85rem', color: '#64748b' }}>05-08강 | 차트 + 패턴</div>
+                <div style={{ position: 'absolute', right: '-10px', top: '50%', transform: 'translateY(-50%)', color: '#94a3b8', zIndex: 10 }}>▶</div>
+              </div>
+              
+              {/* Box 4 */}
+              <div style={{ flex: 1, border: '2px solid #b45309', borderRadius: '12px', padding: '1.5rem 0.5rem', textAlign: 'center', background: '#fffbeb', position: 'relative', marginLeft: '-4px' }}>
+                <div style={{ fontSize: '1.1rem', fontWeight: 'bold', color: '#78350f', marginBottom: '0.5rem' }}>근거 데이터 확보</div>
+                <div style={{ fontSize: '0.85rem', color: '#64748b' }}>09강 | 분석 요약</div>
+                <div style={{ position: 'absolute', right: '-10px', top: '50%', transform: 'translateY(-50%)', color: '#94a3b8', zIndex: 10 }}>▶</div>
+              </div>
+              
+              {/* Box 5 */}
+              <div style={{ flex: 1, border: '2px solid #ef4444', borderRadius: '12px', padding: '1.5rem 0.5rem', textAlign: 'center', background: '#fef2f2', marginLeft: '-4px' }}>
+                <div style={{ fontSize: '1.1rem', fontWeight: 'bold', color: '#7f1d1d', marginBottom: '0.5rem' }}>보고서 생성</div>
+                <div style={{ fontSize: '0.85rem', color: '#64748b' }}>10강 | Markdown+HTML</div>
+              </div>
+            </div>
+            
+            <div style={{ background: '#f8fafc', padding: '1rem 1.5rem', borderRadius: '8px', borderLeft: '4px solid #3b82f6', color: '#334155', fontSize: '0.95rem', fontWeight: '500', display: 'flex', alignItems: 'center' }}>
+              <span style={{ color: '#2563eb', fontWeight: 'bold', marginRight: '0.75rem', whiteSpace: 'nowrap' }}>최종 산출물 (Final Output):</span> 
+              <span>핵심 지표(KPI) 요약, 명확한 분석 근거, 그리고 조치 계획(Action Items)이 모두 포함된 <strong>실무용 주간/월간 엔지니어링 보고서</strong></span>
+            </div>
+            <div style={{ textAlign: 'center', marginTop: '1.5rem', fontSize: '0.8rem', color: '#94a3b8' }}>
+              데이터 정리, 분석, 해석, 보고서 출력이 하나의 완벽한 자동화 흐름으로 이어집니다.
+            </div>
+          </div>
         </section>
 
         <section className="teaching-section">
