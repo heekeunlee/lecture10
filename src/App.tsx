@@ -178,8 +178,7 @@ function App() {
         </div>
 
         <div className="hero-section">
-          <p className="eyebrow">Ch.10</p>
-          <h1>데이터 기반 주간/월간 보고서 자동 생성</h1>
+          <h1>Ch.10 데이터 기반 주간/월간 보고서 자동 생성</h1>
           <p className="subtitle">
             1~9강에서 만든 분석 결과를 반복 보고 업무에 바로 쓰는 Markdown/HTML 교안
           </p>
@@ -369,7 +368,7 @@ function App() {
 
         <section className="teaching-section">
           <span className="section-label">01-2. 백그라운드 지식</span>
-          <h2>엔지니어의 보고서는 목적에 따라 크게 5가지로 나뉩니다</h2>
+          <h2>엔지니어의 보고서는 목적에 따라 크게 6가지로 나뉩니다</h2>
           <p className="section-intro">
             앞서 본 주간/월간 보고서가 공정의 <strong>건강 검진 결과표</strong>라면, 현업에서는 상황에 따라 긴급 대응이나 통계적 증명을 위한 다양한 보고서를 작성합니다. 본 강의에서는 이 중 반복 업무 비중이 가장 높은 '주간/월간 모니터링 보고'의 자동화에 집중합니다.
           </p>
@@ -402,6 +401,12 @@ function App() {
               <span style={{ fontSize: '0.85rem', color: '#16a34a', fontWeight: 'bold' }}>정기 평가 시 (Quarterly/Half)</span>
               <h3 style={{ margin: '0.5rem 0', color: '#166534' }}>원가 절감/성과 보고</h3>
               <p style={{ fontSize: '0.95rem', color: '#14532d', lineHeight: '1.5', margin: 0 }}>설비 소모품 수명 연장이나 가스 사용량 최적화를 통해 해당 파트가 얼마의 비용을 절감했는지 증명하는 성과 평가용 보고입니다.</p>
+            </article>
+
+            <article style={{ background: '#f5f3ff', padding: '1.5rem', borderRadius: '8px', borderLeft: '4px solid #8b5cf6' }}>
+              <span style={{ fontSize: '0.85rem', color: '#8b5cf6', fontWeight: 'bold' }}>원인 규명 시 (Analysis)</span>
+              <h3 style={{ margin: '0.5rem 0', color: '#4c1d95' }}>불량 분석 보고 (FA Report)</h3>
+              <p style={{ fontSize: '0.95rem', color: '#5b21b6', lineHeight: '1.5', margin: 0 }}>새로운 불량이 발생했을 때 SEM, EDS 등 정밀 분석 장비를 활용하여 물질적/구조적 결함 메커니즘을 밝혀내는 보고서입니다.</p>
             </article>
           </div>
         </section>
