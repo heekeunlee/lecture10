@@ -374,130 +374,222 @@ function App() {
           </p>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', marginTop: '2rem' }}>
             {/* 1. Daily */}
-            <article style={{ display: 'flex', flexWrap: 'wrap', gap: '1.5rem', background: '#f8fafc', padding: '1.5rem', borderRadius: '8px', borderLeft: '4px solid #64748b' }}>
-              <div style={{ flex: '1 1 300px' }}>
+            <article style={{ background: '#f8fafc', padding: '1.5rem', borderRadius: '8px', borderLeft: '4px solid #64748b', boxShadow: '0 2px 4px rgba(0,0,0,0.05)' }}>
+              <div style={{ marginBottom: '1.5rem' }}>
                 <span style={{ fontSize: '0.85rem', color: '#64748b', fontWeight: 'bold' }}>매일 아침 (Daily)</span>
                 <h3 style={{ margin: '0.5rem 0', color: '#0f172a' }}>일일 교대/현황 보고</h3>
                 <p style={{ fontSize: '0.95rem', color: '#334155', lineHeight: '1.5', margin: 0 }}>전일 수율, 생산량, 주요 설비 알람을 다음 근무자에게 인수인계하는 가장 빈번하고 간결한 보고입니다.</p>
               </div>
-              <div style={{ flex: '1 1 300px', background: 'white', padding: '1rem', borderRadius: '6px', border: '1px solid #e2e8f0', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
-                  <span style={{ fontSize: '0.8rem', color: '#64748b' }}>일일 생산량 (목표 1,200)</span>
-                  <span style={{ fontSize: '0.85rem', fontWeight: 'bold', color: '#10b981' }}>1,215장 (101%)</span>
+              <div style={{ background: 'white', padding: '1.5rem', borderRadius: '8px', border: '1px solid #e2e8f0' }}>
+                <div style={{ borderBottom: '2px solid #334155', paddingBottom: '0.5rem', marginBottom: '1rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                  <span style={{ fontWeight: 'bold', color: '#1e293b' }}>[Daily] 일일 생산 현황 및 교대 일지 (A조 ➔ B조)</span>
+                  <span style={{ fontSize: '0.8rem', color: '#64748b' }}>작성자: 김엔지니어</span>
                 </div>
-                <div style={{ width: '100%', height: '6px', background: '#f1f5f9', borderRadius: '99px', overflow: 'hidden', marginBottom: '0.75rem' }}>
-                  <div style={{ width: '100%', height: '100%', background: '#10b981', borderRadius: '99px' }}></div>
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '1rem', marginBottom: '1rem' }}>
+                  <div style={{ background: '#f1f5f9', padding: '0.75rem', borderRadius: '6px' }}>
+                    <div style={{ fontSize: '0.8rem', color: '#64748b', marginBottom: '4px' }}>전일 수율 (목표 95%)</div>
+                    <div style={{ fontSize: '1.25rem', fontWeight: 'bold', color: '#0f172a' }}>98.2% <span style={{ color: '#10b981', fontSize: '0.8rem' }}>▲</span></div>
+                  </div>
+                  <div style={{ background: '#f1f5f9', padding: '0.75rem', borderRadius: '6px' }}>
+                    <div style={{ fontSize: '0.8rem', color: '#64748b', marginBottom: '4px' }}>총 생산량 (장)</div>
+                    <div style={{ fontSize: '1.25rem', fontWeight: 'bold', color: '#0f172a' }}>1,215 <span style={{ color: '#10b981', fontSize: '0.8rem' }}>101%</span></div>
+                  </div>
+                  <div style={{ background: '#f1f5f9', padding: '0.75rem', borderRadius: '6px' }}>
+                    <div style={{ fontSize: '0.8rem', color: '#64748b', marginBottom: '4px' }}>설비 가동률</div>
+                    <div style={{ fontSize: '1.25rem', fontWeight: 'bold', color: '#0f172a' }}>92.4% <span style={{ color: '#ef4444', fontSize: '0.8rem' }}>▼</span></div>
+                  </div>
                 </div>
-                <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                  <span style={{ fontSize: '0.8rem', color: '#64748b' }}>설비 평균 가동률 (Uptime)</span>
-                  <span style={{ fontSize: '0.85rem', fontWeight: 'bold', color: '#3b82f6' }}>92.4%</span>
+                <div style={{ background: '#f8fafc', padding: '0.85rem', borderRadius: '6px', fontSize: '0.9rem', color: '#334155', border: '1px solid #e2e8f0' }}>
+                  <strong>📝 인계사항:</strong> T-04 설비 오후 2시 예방정비(PM) 예정. 가스 밸브 점검 요망.
                 </div>
               </div>
             </article>
 
             {/* 2. Trouble */}
-            <article style={{ display: 'flex', flexWrap: 'wrap', gap: '1.5rem', background: '#fff1f2', padding: '1.5rem', borderRadius: '8px', borderLeft: '4px solid #ef4444' }}>
-              <div style={{ flex: '1 1 300px' }}>
+            <article style={{ background: '#fff1f2', padding: '1.5rem', borderRadius: '8px', borderLeft: '4px solid #ef4444', boxShadow: '0 2px 4px rgba(0,0,0,0.05)' }}>
+              <div style={{ marginBottom: '1.5rem' }}>
                 <span style={{ fontSize: '0.85rem', color: '#ef4444', fontWeight: 'bold' }}>사고 발생 시 (Emergency)</span>
                 <h3 style={{ margin: '0.5rem 0', color: '#991b1b' }}>이상 발생 보고 (Trouble Report)</h3>
                 <p style={{ fontSize: '0.95rem', color: '#7f1d1d', lineHeight: '1.5', margin: 0 }}>수율 급락 등 문제 발생 시 피해 확산을 막기 위해 2~4시간 내에 1차 조치와 현상을 긴급 전파하는 <strong>응급 수술 기록지</strong> 역할을 합니다.</p>
               </div>
-              <div style={{ flex: '1 1 300px', background: 'white', padding: '1rem', borderRadius: '6px', border: '1px solid #fecaca', display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                <div style={{ flex: 1 }}>
-                  <div style={{ fontSize: '0.8rem', color: '#ef4444', fontWeight: 'bold' }}>T-04 설비 불량률</div>
-                  <div style={{ fontSize: '1.5rem', fontWeight: '900', color: '#b91c1c' }}>45.2% <span style={{fontSize:'0.8rem'}}>▲ 42%p</span></div>
+              <div style={{ background: 'white', padding: '1.5rem', borderRadius: '8px', border: '1px solid #fecaca' }}>
+                <div style={{ borderBottom: '2px solid #ef4444', paddingBottom: '0.5rem', marginBottom: '1rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                  <span style={{ fontWeight: 'bold', color: '#b91c1c' }}>[긴급] Etch 공정 T-04 설비 플라즈마 이상 발생</span>
+                  <span style={{ background: '#ef4444', color: 'white', padding: '2px 8px', borderRadius: '99px', fontSize: '0.75rem', fontWeight: 'bold' }}>Trouble-01</span>
                 </div>
-                <div style={{ flex: 1, height: '40px', display: 'flex', alignItems: 'flex-end', gap: '4px' }}>
-                  <div style={{ flex: 1, background: '#f1f5f9', height: '10%' }}></div>
-                  <div style={{ flex: 1, background: '#f1f5f9', height: '12%' }}></div>
-                  <div style={{ flex: 1, background: '#f1f5f9', height: '8%' }}></div>
-                  <div style={{ flex: 1, background: '#ef4444', height: '100%' }}></div>
+                <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'center', marginBottom: '1rem' }}>
+                  <div style={{ flex: 1 }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem', fontSize: '0.9rem' }}>
+                      <span style={{ color: '#64748b' }}>발생 시각</span>
+                      <strong style={{ color: '#0f172a' }}>14:30 (근무 교대 직후)</strong>
+                    </div>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem', fontSize: '0.9rem' }}>
+                      <span style={{ color: '#64748b' }}>피해 수량</span>
+                      <strong style={{ color: '#ef4444' }}>2 Lot (50장 폐기)</strong>
+                    </div>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.9rem' }}>
+                      <span style={{ color: '#64748b' }}>예상 손실액</span>
+                      <strong style={{ color: '#0f172a' }}>₩ 4,500만</strong>
+                    </div>
+                  </div>
+                  <div style={{ flex: 1, height: '80px', background: '#f8fafc', borderRadius: '6px', border: '1px solid #f1f5f9', position: 'relative', padding: '0.5rem' }}>
+                    <div style={{ fontSize: '0.7rem', color: '#64748b', marginBottom: '4px' }}>RF Voltage Drop 추이</div>
+                    <svg viewBox="0 0 100 40" preserveAspectRatio="none" style={{ width: '100%', height: 'calc(100% - 16px)', overflow: 'visible' }}>
+                      <path d="M 0,10 L 40,10 L 45,35 L 60,35 L 65,10 L 100,10" fill="none" stroke="#ef4444" strokeWidth="2" strokeLinejoin="round" />
+                      <circle cx="45" cy="35" r="3" fill="#ef4444" />
+                      <text x="50" y="38" fontSize="8" fill="#ef4444" fontWeight="bold">Drop!</text>
+                    </svg>
+                  </div>
+                </div>
+                <div style={{ background: '#fef2f2', padding: '0.85rem', borderRadius: '6px', fontSize: '0.9rem', color: '#991b1b', border: '1px solid #fca5a5' }}>
+                  <strong>⚡ 즉각 조치:</strong> T-04 설비 Interlock 발동 및 가동 중단, 유관부서(설비기술, 품질) 상황 긴급 전파 완료.
                 </div>
               </div>
             </article>
 
             {/* 3. 8D */}
-            <article style={{ display: 'flex', flexWrap: 'wrap', gap: '1.5rem', background: '#f0fdfa', padding: '1.5rem', borderRadius: '8px', borderLeft: '4px solid #0d9488' }}>
-              <div style={{ flex: '1 1 300px' }}>
+            <article style={{ background: '#f0fdfa', padding: '1.5rem', borderRadius: '8px', borderLeft: '4px solid #0d9488', boxShadow: '0 2px 4px rgba(0,0,0,0.05)' }}>
+              <div style={{ marginBottom: '1.5rem' }}>
                 <span style={{ fontSize: '0.85rem', color: '#0d9488', fontWeight: 'bold' }}>사고 수습 후 (Post-mortem)</span>
                 <h3 style={{ margin: '0.5rem 0', color: '#115e59' }}>개선 대책 보고 (8D Report)</h3>
                 <p style={{ fontSize: '0.95rem', color: '#134e4a', lineHeight: '1.5', margin: 0 }}>임시방편이 아닌 근본 원인(Root Cause)을 규명하고, 시스템적 재발 방지 대책을 8단계로 수립하는 매우 무거운 심층 보고서입니다.</p>
               </div>
-              <div style={{ flex: '1 1 300px', background: 'white', padding: '1rem', borderRadius: '6px', border: '1px solid #ccfbf1', display: 'flex', alignItems: 'center', justifyContent: 'space-around' }}>
-                <div style={{ textAlign: 'center' }}>
-                  <div style={{ fontSize: '0.75rem', color: '#64748b', marginBottom: '4px' }}>개선 전 (Before)</div>
-                  <div style={{ fontSize: '1.25rem', fontWeight: 'bold', color: '#ef4444' }}>8,420 ppm</div>
+              <div style={{ background: 'white', padding: '1.5rem', borderRadius: '8px', border: '1px solid #ccfbf1' }}>
+                <div style={{ borderBottom: '2px solid #0d9488', paddingBottom: '0.5rem', marginBottom: '1rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                  <span style={{ fontWeight: 'bold', color: '#0f766e' }}>[8D Report] Photo 공정 Edge 부분 초점 불량 근본원인 개선</span>
+                  <span style={{ fontSize: '0.8rem', color: '#64748b' }}>Status: Closed</span>
                 </div>
-                <div style={{ color: '#0d9488', fontSize: '1.5rem' }}>➔</div>
-                <div style={{ textAlign: 'center' }}>
-                  <div style={{ fontSize: '0.75rem', color: '#64748b', marginBottom: '4px' }}>개선 후 (After)</div>
-                  <div style={{ fontSize: '1.25rem', fontWeight: 'bold', color: '#10b981' }}>12 ppm</div>
+                <div style={{ display: 'grid', gridTemplateColumns: '3fr 2fr', gap: '1.5rem', marginBottom: '1rem' }}>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                    <div style={{ fontSize: '0.85rem', background: '#f8fafc', padding: '0.5rem', borderRadius: '4px' }}><strong style={{color:'#0f766e'}}>D1~3 (현상파악):</strong> 웨이퍼 엣지 흔들림 확인</div>
+                    <div style={{ fontSize: '0.85rem', background: '#f8fafc', padding: '0.5rem', borderRadius: '4px' }}><strong style={{color:'#ef4444'}}>D4 (근본원인):</strong> 척(Chuck) 하단 진공 누설</div>
+                    <div style={{ fontSize: '0.85rem', background: '#f8fafc', padding: '0.5rem', borderRadius: '4px' }}><strong style={{color:'#10b981'}}>D5~6 (영구대책):</strong> 척 오링 재질 변경 (Viton ➔ Kalrez)</div>
+                  </div>
+                  <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', background: '#f0fdfa', padding: '1rem', borderRadius: '6px', border: '1px solid #99f6e4', textAlign: 'center' }}>
+                    <div style={{ fontSize: '0.75rem', color: '#0f766e', fontWeight: 'bold', marginBottom: '0.5rem' }}>불량률 (ppm) 개선 효과</div>
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem' }}>
+                      <div style={{ textAlign: 'center' }}>
+                        <div style={{ fontSize: '1.1rem', fontWeight: '900', color: '#ef4444' }}>8,420</div>
+                        <div style={{ fontSize: '0.65rem', color: '#64748b' }}>개선 전</div>
+                      </div>
+                      <div style={{ color: '#0d9488', fontSize: '1.25rem' }}>➔</div>
+                      <div style={{ textAlign: 'center' }}>
+                        <div style={{ fontSize: '1.1rem', fontWeight: '900', color: '#10b981' }}>12</div>
+                        <div style={{ fontSize: '0.65rem', color: '#64748b' }}>개선 후</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div style={{ background: '#f8fafc', padding: '0.85rem', borderRadius: '6px', fontSize: '0.9rem', color: '#334155', border: '1px solid #e2e8f0' }}>
+                  <strong>🏁 D8 (결론):</strong> 전 호기 척 오링 교체 수평 전개 완료. 3주간 모니터링 결과 이상 없음, 이슈 클로즈.
                 </div>
               </div>
             </article>
 
             {/* 4. ECN */}
-            <article style={{ display: 'flex', flexWrap: 'wrap', gap: '1.5rem', background: '#fffbeb', padding: '1.5rem', borderRadius: '8px', borderLeft: '4px solid #f59e0b' }}>
-              <div style={{ flex: '1 1 300px' }}>
+            <article style={{ background: '#fffbeb', padding: '1.5rem', borderRadius: '8px', borderLeft: '4px solid #f59e0b', boxShadow: '0 2px 4px rgba(0,0,0,0.05)' }}>
+              <div style={{ marginBottom: '1.5rem' }}>
                 <span style={{ fontSize: '0.85rem', color: '#d97706', fontWeight: 'bold' }}>조건 변경 시 (A/B Test)</span>
                 <h3 style={{ margin: '0.5rem 0', color: '#92400e' }}>조건 변경 보고 (ECN Report)</h3>
                 <p style={{ fontSize: '0.95rem', color: '#78350f', lineHeight: '1.5', margin: 0 }}>레시피나 파츠 변경 시, 스플릿 테스트를 통해 통계적으로 품질에 악영향이 없음을 입증하고 상부의 승인을 받는 평가 보고입니다.</p>
               </div>
-              <div style={{ flex: '1 1 300px', background: 'white', padding: '1rem', borderRadius: '6px', border: '1px solid #fef3c7', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-                <div style={{ fontSize: '0.8rem', color: '#92400e', fontWeight: 'bold', marginBottom: '0.5rem' }}>공정 능력 지수 (Cpk) 검증</div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.5rem' }}>
-                  <span style={{ width: '40px', fontSize: '0.75rem', color: '#64748b' }}>기존</span>
-                  <div style={{ flex: 1, background: '#f1f5f9', height: '12px', borderRadius: '2px' }}>
-                    <div style={{ width: '40%', background: '#94a3b8', height: '100%' }}></div>
-                  </div>
-                  <span style={{ width: '30px', fontSize: '0.8rem', fontWeight: 'bold' }}>1.12</span>
+              <div style={{ background: 'white', padding: '1.5rem', borderRadius: '8px', border: '1px solid #fef3c7' }}>
+                <div style={{ borderBottom: '2px solid #f59e0b', paddingBottom: '0.5rem', marginBottom: '1rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                  <span style={{ fontWeight: 'bold', color: '#b45309' }}>[ECN] 세정 공정(Cleaning) 케미컬 농도 변경 평가</span>
+                  <span style={{ fontSize: '0.8rem', background: '#f59e0b', color: 'white', padding: '2px 6px', borderRadius: '4px' }}>승인 대기</span>
                 </div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                  <span style={{ width: '40px', fontSize: '0.75rem', color: '#d97706', fontWeight: 'bold' }}>신규</span>
-                  <div style={{ flex: 1, background: '#f1f5f9', height: '12px', borderRadius: '2px' }}>
-                    <div style={{ width: '75%', background: '#f59e0b', height: '100%' }}></div>
+                <div style={{ display: 'flex', gap: '1.5rem', marginBottom: '1rem' }}>
+                  <div style={{ flex: 1 }}>
+                    <div style={{ fontSize: '0.85rem', color: '#64748b', marginBottom: '0.25rem' }}>변경 사유</div>
+                    <div style={{ fontSize: '0.9rem', color: '#0f172a', marginBottom: '0.75rem', fontWeight: 'bold' }}>원가 절감 및 세정력 강화</div>
+                    <div style={{ fontSize: '0.85rem', color: '#64748b', marginBottom: '0.25rem' }}>평가 방법</div>
+                    <div style={{ fontSize: '0.9rem', color: '#0f172a', fontWeight: 'bold' }}>3 Lot Split Test (기존 100% vs 신규 80%)</div>
                   </div>
-                  <span style={{ width: '30px', fontSize: '0.8rem', fontWeight: 'bold', color: '#d97706' }}>1.65</span>
+                  <div style={{ flex: 1, background: '#f8fafc', padding: '1rem', borderRadius: '6px', border: '1px solid #e2e8f0' }}>
+                    <div style={{ fontSize: '0.8rem', color: '#475569', fontWeight: 'bold', marginBottom: '0.75rem' }}>공정 능력 지수 (Cpk) 비교</div>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.5rem' }}>
+                      <span style={{ width: '35px', fontSize: '0.75rem', color: '#64748b' }}>기존</span>
+                      <div style={{ flex: 1, background: '#f1f5f9', height: '12px', borderRadius: '2px' }}><div style={{ width: '45%', background: '#94a3b8', height: '100%' }}></div></div>
+                      <span style={{ width: '30px', fontSize: '0.8rem', fontWeight: 'bold' }}>1.12</span>
+                    </div>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                      <span style={{ width: '35px', fontSize: '0.75rem', color: '#d97706', fontWeight: 'bold' }}>신규</span>
+                      <div style={{ flex: 1, background: '#f1f5f9', height: '12px', borderRadius: '2px' }}><div style={{ width: '80%', background: '#f59e0b', height: '100%' }}></div></div>
+                      <span style={{ width: '30px', fontSize: '0.8rem', fontWeight: 'bold', color: '#d97706' }}>1.65</span>
+                    </div>
+                  </div>
+                </div>
+                <div style={{ background: '#fffbeb', padding: '0.85rem', borderRadius: '6px', fontSize: '0.9rem', color: '#92400e', border: '1px solid #fde68a' }}>
+                  <strong>✅ 판정:</strong> 산포 감소 및 수율 동등 이상 확인. 양산 레시피 변경(ECN) 적용을 승인 요청함.
                 </div>
               </div>
             </article>
 
             {/* 5. Cost */}
-            <article style={{ display: 'flex', flexWrap: 'wrap', gap: '1.5rem', background: '#f0fdf4', padding: '1.5rem', borderRadius: '8px', borderLeft: '4px solid #22c55e' }}>
-              <div style={{ flex: '1 1 300px' }}>
+            <article style={{ background: '#f0fdf4', padding: '1.5rem', borderRadius: '8px', borderLeft: '4px solid #22c55e', boxShadow: '0 2px 4px rgba(0,0,0,0.05)' }}>
+              <div style={{ marginBottom: '1.5rem' }}>
                 <span style={{ fontSize: '0.85rem', color: '#16a34a', fontWeight: 'bold' }}>정기 평가 시 (Quarterly/Half)</span>
                 <h3 style={{ margin: '0.5rem 0', color: '#166534' }}>원가 절감/성과 보고</h3>
                 <p style={{ fontSize: '0.95rem', color: '#14532d', lineHeight: '1.5', margin: 0 }}>설비 소모품 수명 연장이나 가스 사용량 최적화를 통해 해당 파트가 얼마의 비용을 절감했는지 증명하는 성과 평가용 보고입니다.</p>
               </div>
-              <div style={{ flex: '1 1 300px', background: 'white', padding: '1rem', borderRadius: '6px', border: '1px solid #dcfce7', display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                <div style={{ flex: 1 }}>
-                  <div style={{ fontSize: '0.8rem', color: '#166534', fontWeight: 'bold' }}>연간 누적 절감액</div>
-                  <div style={{ fontSize: '1.25rem', fontWeight: '900', color: '#15803d' }}>₩ 1.5억 <span style={{fontSize:'0.75rem', background: '#22c55e', color: 'white', padding: '2px 4px', borderRadius: '4px'}}>목표 초과</span></div>
+              <div style={{ background: 'white', padding: '1.5rem', borderRadius: '8px', border: '1px solid #dcfce7' }}>
+                <div style={{ borderBottom: '2px solid #22c55e', paddingBottom: '0.5rem', marginBottom: '1rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                  <span style={{ fontWeight: 'bold', color: '#15803d' }}>[Cost] 2026 상반기 CVD 공정 가스 사용량 최적화 성과</span>
+                  <span style={{ fontSize: '0.8rem', color: '#64748b' }}>재무팀 검증 완료</span>
                 </div>
-                <div style={{ flex: 1, height: '40px', position: 'relative' }}>
-                  <svg viewBox="0 0 100 40" preserveAspectRatio="none" style={{ width: '100%', height: '100%', overflow: 'visible' }}>
-                    <path d="M 0,35 L 25,30 L 50,20 L 75,10 L 100,5" fill="none" stroke="#22c55e" strokeWidth="3" strokeLinecap="round" />
-                  </svg>
+                <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'center', marginBottom: '1rem' }}>
+                  <div style={{ flex: 1 }}>
+                    <div style={{ fontSize: '0.85rem', color: '#64748b', marginBottom: '0.25rem' }}>핵심 절감 항목</div>
+                    <div style={{ fontSize: '0.9rem', color: '#0f172a', marginBottom: '0.75rem', fontWeight: 'bold' }}>SiH4 가스 Flow 15% 감축</div>
+                    <div style={{ fontSize: '0.85rem', color: '#64748b', marginBottom: '0.25rem' }}>연간 예상 절감액</div>
+                    <div style={{ fontSize: '1.5rem', fontWeight: '900', color: '#15803d' }}>₩ 1.5억 <span style={{ fontSize: '0.75rem', background: '#22c55e', color: 'white', padding: '2px 4px', borderRadius: '4px', verticalAlign: 'middle' }}>초과 달성</span></div>
+                  </div>
+                  <div style={{ flex: 1, height: '90px', background: '#f8fafc', borderRadius: '6px', border: '1px solid #f1f5f9', position: 'relative', padding: '0.5rem' }}>
+                    <div style={{ fontSize: '0.7rem', color: '#64748b', marginBottom: '4px' }}>월별 누적 절감액 추이</div>
+                    <svg viewBox="0 0 100 40" preserveAspectRatio="none" style={{ width: '100%', height: 'calc(100% - 16px)', overflow: 'visible' }}>
+                      <line x1="0" y1="20" x2="100" y2="10" stroke="#94a3b8" strokeWidth="1" strokeDasharray="2,2" />
+                      <path d="M 0,40 L 20,32 L 40,22 L 60,12 L 80,0 L 100,-10" fill="none" stroke="#22c55e" strokeWidth="2.5" strokeLinejoin="round" />
+                      <circle cx="80" cy="0" r="3" fill="#22c55e" />
+                    </svg>
+                  </div>
+                </div>
+                <div style={{ background: '#f0fdf4', padding: '0.85rem', borderRadius: '6px', fontSize: '0.9rem', color: '#166534', border: '1px solid #bbf7d0' }}>
+                  <strong>📈 종합 평가:</strong> 상반기 목표액(1.0억) 대비 150% 초과 달성. 하반기 전 라인 확대 적용 추진.
                 </div>
               </div>
             </article>
 
             {/* 6. FA */}
-            <article style={{ display: 'flex', flexWrap: 'wrap', gap: '1.5rem', background: '#f5f3ff', padding: '1.5rem', borderRadius: '8px', borderLeft: '4px solid #8b5cf6' }}>
-              <div style={{ flex: '1 1 300px' }}>
+            <article style={{ background: '#f5f3ff', padding: '1.5rem', borderRadius: '8px', borderLeft: '4px solid #8b5cf6', boxShadow: '0 2px 4px rgba(0,0,0,0.05)' }}>
+              <div style={{ marginBottom: '1.5rem' }}>
                 <span style={{ fontSize: '0.85rem', color: '#8b5cf6', fontWeight: 'bold' }}>원인 규명 시 (Analysis)</span>
                 <h3 style={{ margin: '0.5rem 0', color: '#4c1d95' }}>불량 분석 보고 (FA Report)</h3>
                 <p style={{ fontSize: '0.95rem', color: '#5b21b6', lineHeight: '1.5', margin: 0 }}>새로운 불량이 발생했을 때 SEM, EDS 등 정밀 분석 장비를 활용하여 물질적/구조적 결함 메커니즘을 밝혀내는 보고서입니다.</p>
               </div>
-              <div style={{ flex: '1 1 300px', background: 'white', padding: '1rem', borderRadius: '6px', border: '1px solid #ede9fe', display: 'flex', flexDirection: 'column' }}>
-                <div style={{ fontSize: '0.8rem', color: '#5b21b6', fontWeight: 'bold', marginBottom: '0.5rem' }}>이물질(Particle) EDS 성분 검출</div>
-                <div style={{ height: '30px', position: 'relative', marginBottom: '0.5rem' }}>
-                  <svg viewBox="0 0 100 30" preserveAspectRatio="none" style={{ width: '100%', height: '100%', overflow: 'visible' }}>
-                    <path d="M 0,25 L 20,25 L 30,5 L 35,25 L 100,25" fill="none" stroke="#8b5cf6" strokeWidth="2" strokeLinejoin="round" />
-                    <text x="25" y="4" fontSize="6" fill="#6d28d9" fontWeight="bold">Fluorine (F)</text>
-                  </svg>
+              <div style={{ background: 'white', padding: '1.5rem', borderRadius: '8px', border: '1px solid #ede9fe' }}>
+                <div style={{ borderBottom: '2px solid #8b5cf6', paddingBottom: '0.5rem', marginBottom: '1rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                  <span style={{ fontWeight: 'bold', color: '#6d28d9' }}>[FA Report] 신규 Particle 성분 및 발생 메커니즘 분석</span>
+                  <span style={{ fontSize: '0.8rem', color: '#64748b' }}>분석 장비: SEM, EDS</span>
                 </div>
-                <div style={{ fontSize: '0.75rem', color: '#64748b' }}>결과: O-ring 부식으로 인한 불소(F) 34% 검출 확진</div>
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 2fr', gap: '1.5rem', marginBottom: '1rem' }}>
+                  <div style={{ background: '#f8fafc', padding: '0.75rem', borderRadius: '6px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                    <div style={{ fontSize: '0.85rem', color: '#64748b', marginBottom: '0.25rem' }}>분석 의뢰일</div>
+                    <div style={{ fontSize: '0.9rem', color: '#0f172a', marginBottom: '0.75rem', fontWeight: 'bold' }}>2026.05.20</div>
+                    <div style={{ fontSize: '0.85rem', color: '#64748b', marginBottom: '0.25rem' }}>이물질 크기</div>
+                    <div style={{ fontSize: '0.9rem', color: '#0f172a', fontWeight: 'bold' }}>약 2.5 µm</div>
+                  </div>
+                  <div style={{ height: '90px', background: '#f8fafc', borderRadius: '6px', border: '1px solid #f1f5f9', position: 'relative', padding: '0.5rem' }}>
+                    <div style={{ fontSize: '0.7rem', color: '#64748b', marginBottom: '4px' }}>EDS 스펙트럼 (에너지 분산형 X선)</div>
+                    <svg viewBox="0 0 100 40" preserveAspectRatio="none" style={{ width: '100%', height: 'calc(100% - 16px)', overflow: 'visible' }}>
+                      <path d="M 0,35 L 20,35 L 25,5 L 30,35 L 50,35 L 55,20 L 60,35 L 100,35" fill="none" stroke="#8b5cf6" strokeWidth="1.5" strokeLinejoin="round" />
+                      <text x="20" y="3" fontSize="8" fill="#6d28d9" fontWeight="bold">F (불소)</text>
+                      <text x="50" y="16" fontSize="7" fill="#64748b">C (탄소)</text>
+                    </svg>
+                  </div>
+                </div>
+                <div style={{ background: '#f5f3ff', padding: '0.85rem', borderRadius: '6px', fontSize: '0.9rem', color: '#5b21b6', border: '1px solid #ddd6fe' }}>
+                  <strong>🔬 분석 결론:</strong> 챔버 내부 O-ring 식각에 의해 불소(F) 화합물이 떨어져 내린 것으로 최종 확진.
+                </div>
               </div>
             </article>
           </div>
@@ -767,3 +859,4 @@ function App() {
 
 export default App;
 // trigger build
+console.log('force deploy 2');
