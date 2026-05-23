@@ -372,41 +372,133 @@ function App() {
           <p className="section-intro">
             앞서 본 주간/월간 보고서가 공정의 <strong>건강 검진 결과표</strong>라면, 현업에서는 상황에 따라 긴급 대응이나 통계적 증명을 위한 다양한 보고서를 작성합니다. 본 강의에서는 이 중 반복 업무 비중이 가장 높은 '주간/월간 모니터링 보고'의 자동화에 집중합니다.
           </p>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem', marginTop: '2rem' }}>
-            <article style={{ background: '#f8fafc', padding: '1.5rem', borderRadius: '8px', borderLeft: '4px solid #64748b' }}>
-              <span style={{ fontSize: '0.85rem', color: '#64748b', fontWeight: 'bold' }}>매일 아침 (Daily)</span>
-              <h3 style={{ margin: '0.5rem 0', color: '#0f172a' }}>일일 교대/현황 보고</h3>
-              <p style={{ fontSize: '0.95rem', color: '#334155', lineHeight: '1.5', margin: 0 }}>전일 수율, 생산량, 주요 설비 알람을 다음 근무자에게 인수인계하는 가장 빈번하고 간결한 텍스트 위주 보고입니다.</p>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', marginTop: '2rem' }}>
+            {/* 1. Daily */}
+            <article style={{ display: 'flex', flexWrap: 'wrap', gap: '1.5rem', background: '#f8fafc', padding: '1.5rem', borderRadius: '8px', borderLeft: '4px solid #64748b' }}>
+              <div style={{ flex: '1 1 300px' }}>
+                <span style={{ fontSize: '0.85rem', color: '#64748b', fontWeight: 'bold' }}>매일 아침 (Daily)</span>
+                <h3 style={{ margin: '0.5rem 0', color: '#0f172a' }}>일일 교대/현황 보고</h3>
+                <p style={{ fontSize: '0.95rem', color: '#334155', lineHeight: '1.5', margin: 0 }}>전일 수율, 생산량, 주요 설비 알람을 다음 근무자에게 인수인계하는 가장 빈번하고 간결한 보고입니다.</p>
+              </div>
+              <div style={{ flex: '1 1 300px', background: 'white', padding: '1rem', borderRadius: '6px', border: '1px solid #e2e8f0', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
+                  <span style={{ fontSize: '0.8rem', color: '#64748b' }}>일일 생산량 (목표 1,200)</span>
+                  <span style={{ fontSize: '0.85rem', fontWeight: 'bold', color: '#10b981' }}>1,215장 (101%)</span>
+                </div>
+                <div style={{ width: '100%', height: '6px', background: '#f1f5f9', borderRadius: '99px', overflow: 'hidden', marginBottom: '0.75rem' }}>
+                  <div style={{ width: '100%', height: '100%', background: '#10b981', borderRadius: '99px' }}></div>
+                </div>
+                <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                  <span style={{ fontSize: '0.8rem', color: '#64748b' }}>설비 평균 가동률 (Uptime)</span>
+                  <span style={{ fontSize: '0.85rem', fontWeight: 'bold', color: '#3b82f6' }}>92.4%</span>
+                </div>
+              </div>
             </article>
 
-            <article style={{ background: '#fff1f2', padding: '1.5rem', borderRadius: '8px', borderLeft: '4px solid #ef4444' }}>
-              <span style={{ fontSize: '0.85rem', color: '#ef4444', fontWeight: 'bold' }}>사고 발생 시 (Emergency)</span>
-              <h3 style={{ margin: '0.5rem 0', color: '#991b1b' }}>이상 발생 보고 (Trouble Report)</h3>
-              <p style={{ fontSize: '0.95rem', color: '#7f1d1d', lineHeight: '1.5', margin: 0 }}>수율 급락 등 문제 발생 시 피해 확산을 막기 위해 2~4시간 내에 1차 조치와 현상을 긴급 전파하는 <strong>응급 수술 기록지</strong> 역할을 합니다.</p>
+            {/* 2. Trouble */}
+            <article style={{ display: 'flex', flexWrap: 'wrap', gap: '1.5rem', background: '#fff1f2', padding: '1.5rem', borderRadius: '8px', borderLeft: '4px solid #ef4444' }}>
+              <div style={{ flex: '1 1 300px' }}>
+                <span style={{ fontSize: '0.85rem', color: '#ef4444', fontWeight: 'bold' }}>사고 발생 시 (Emergency)</span>
+                <h3 style={{ margin: '0.5rem 0', color: '#991b1b' }}>이상 발생 보고 (Trouble Report)</h3>
+                <p style={{ fontSize: '0.95rem', color: '#7f1d1d', lineHeight: '1.5', margin: 0 }}>수율 급락 등 문제 발생 시 피해 확산을 막기 위해 2~4시간 내에 1차 조치와 현상을 긴급 전파하는 <strong>응급 수술 기록지</strong> 역할을 합니다.</p>
+              </div>
+              <div style={{ flex: '1 1 300px', background: 'white', padding: '1rem', borderRadius: '6px', border: '1px solid #fecaca', display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                <div style={{ flex: 1 }}>
+                  <div style={{ fontSize: '0.8rem', color: '#ef4444', fontWeight: 'bold' }}>T-04 설비 불량률</div>
+                  <div style={{ fontSize: '1.5rem', fontWeight: '900', color: '#b91c1c' }}>45.2% <span style={{fontSize:'0.8rem'}}>▲ 42%p</span></div>
+                </div>
+                <div style={{ flex: 1, height: '40px', display: 'flex', alignItems: 'flex-end', gap: '4px' }}>
+                  <div style={{ flex: 1, background: '#f1f5f9', height: '10%' }}></div>
+                  <div style={{ flex: 1, background: '#f1f5f9', height: '12%' }}></div>
+                  <div style={{ flex: 1, background: '#f1f5f9', height: '8%' }}></div>
+                  <div style={{ flex: 1, background: '#ef4444', height: '100%' }}></div>
+                </div>
+              </div>
             </article>
 
-            <article style={{ background: '#f0fdfa', padding: '1.5rem', borderRadius: '8px', borderLeft: '4px solid #0d9488' }}>
-              <span style={{ fontSize: '0.85rem', color: '#0d9488', fontWeight: 'bold' }}>사고 수습 후 (Post-mortem)</span>
-              <h3 style={{ margin: '0.5rem 0', color: '#115e59' }}>개선 대책 보고 (8D Report)</h3>
-              <p style={{ fontSize: '0.95rem', color: '#134e4a', lineHeight: '1.5', margin: 0 }}>임시방편이 아닌 근본 원인(Root Cause)을 규명하고, 시스템적 재발 방지 대책을 8단계로 수립하는 매우 무거운 심층 보고서입니다.</p>
+            {/* 3. 8D */}
+            <article style={{ display: 'flex', flexWrap: 'wrap', gap: '1.5rem', background: '#f0fdfa', padding: '1.5rem', borderRadius: '8px', borderLeft: '4px solid #0d9488' }}>
+              <div style={{ flex: '1 1 300px' }}>
+                <span style={{ fontSize: '0.85rem', color: '#0d9488', fontWeight: 'bold' }}>사고 수습 후 (Post-mortem)</span>
+                <h3 style={{ margin: '0.5rem 0', color: '#115e59' }}>개선 대책 보고 (8D Report)</h3>
+                <p style={{ fontSize: '0.95rem', color: '#134e4a', lineHeight: '1.5', margin: 0 }}>임시방편이 아닌 근본 원인(Root Cause)을 규명하고, 시스템적 재발 방지 대책을 8단계로 수립하는 매우 무거운 심층 보고서입니다.</p>
+              </div>
+              <div style={{ flex: '1 1 300px', background: 'white', padding: '1rem', borderRadius: '6px', border: '1px solid #ccfbf1', display: 'flex', alignItems: 'center', justifyContent: 'space-around' }}>
+                <div style={{ textAlign: 'center' }}>
+                  <div style={{ fontSize: '0.75rem', color: '#64748b', marginBottom: '4px' }}>개선 전 (Before)</div>
+                  <div style={{ fontSize: '1.25rem', fontWeight: 'bold', color: '#ef4444' }}>8,420 ppm</div>
+                </div>
+                <div style={{ color: '#0d9488', fontSize: '1.5rem' }}>➔</div>
+                <div style={{ textAlign: 'center' }}>
+                  <div style={{ fontSize: '0.75rem', color: '#64748b', marginBottom: '4px' }}>개선 후 (After)</div>
+                  <div style={{ fontSize: '1.25rem', fontWeight: 'bold', color: '#10b981' }}>12 ppm</div>
+                </div>
+              </div>
             </article>
 
-            <article style={{ background: '#fffbeb', padding: '1.5rem', borderRadius: '8px', borderLeft: '4px solid #f59e0b' }}>
-              <span style={{ fontSize: '0.85rem', color: '#d97706', fontWeight: 'bold' }}>조건 변경 시 (A/B Test)</span>
-              <h3 style={{ margin: '0.5rem 0', color: '#92400e' }}>조건 변경 보고 (ECN Report)</h3>
-              <p style={{ fontSize: '0.95rem', color: '#78350f', lineHeight: '1.5', margin: 0 }}>레시피나 파츠 변경 시, 스플릿 테스트를 통해 통계적으로 품질에 악영향이 없음을 입증하고 상부의 승인을 받는 평가 보고입니다.</p>
+            {/* 4. ECN */}
+            <article style={{ display: 'flex', flexWrap: 'wrap', gap: '1.5rem', background: '#fffbeb', padding: '1.5rem', borderRadius: '8px', borderLeft: '4px solid #f59e0b' }}>
+              <div style={{ flex: '1 1 300px' }}>
+                <span style={{ fontSize: '0.85rem', color: '#d97706', fontWeight: 'bold' }}>조건 변경 시 (A/B Test)</span>
+                <h3 style={{ margin: '0.5rem 0', color: '#92400e' }}>조건 변경 보고 (ECN Report)</h3>
+                <p style={{ fontSize: '0.95rem', color: '#78350f', lineHeight: '1.5', margin: 0 }}>레시피나 파츠 변경 시, 스플릿 테스트를 통해 통계적으로 품질에 악영향이 없음을 입증하고 상부의 승인을 받는 평가 보고입니다.</p>
+              </div>
+              <div style={{ flex: '1 1 300px', background: 'white', padding: '1rem', borderRadius: '6px', border: '1px solid #fef3c7', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                <div style={{ fontSize: '0.8rem', color: '#92400e', fontWeight: 'bold', marginBottom: '0.5rem' }}>공정 능력 지수 (Cpk) 검증</div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.5rem' }}>
+                  <span style={{ width: '40px', fontSize: '0.75rem', color: '#64748b' }}>기존</span>
+                  <div style={{ flex: 1, background: '#f1f5f9', height: '12px', borderRadius: '2px' }}>
+                    <div style={{ width: '40%', background: '#94a3b8', height: '100%' }}></div>
+                  </div>
+                  <span style={{ width: '30px', fontSize: '0.8rem', fontWeight: 'bold' }}>1.12</span>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                  <span style={{ width: '40px', fontSize: '0.75rem', color: '#d97706', fontWeight: 'bold' }}>신규</span>
+                  <div style={{ flex: 1, background: '#f1f5f9', height: '12px', borderRadius: '2px' }}>
+                    <div style={{ width: '75%', background: '#f59e0b', height: '100%' }}></div>
+                  </div>
+                  <span style={{ width: '30px', fontSize: '0.8rem', fontWeight: 'bold', color: '#d97706' }}>1.65</span>
+                </div>
+              </div>
             </article>
 
-            <article style={{ background: '#f0fdf4', padding: '1.5rem', borderRadius: '8px', borderLeft: '4px solid #22c55e' }}>
-              <span style={{ fontSize: '0.85rem', color: '#16a34a', fontWeight: 'bold' }}>정기 평가 시 (Quarterly/Half)</span>
-              <h3 style={{ margin: '0.5rem 0', color: '#166534' }}>원가 절감/성과 보고</h3>
-              <p style={{ fontSize: '0.95rem', color: '#14532d', lineHeight: '1.5', margin: 0 }}>설비 소모품 수명 연장이나 가스 사용량 최적화를 통해 해당 파트가 얼마의 비용을 절감했는지 증명하는 성과 평가용 보고입니다.</p>
+            {/* 5. Cost */}
+            <article style={{ display: 'flex', flexWrap: 'wrap', gap: '1.5rem', background: '#f0fdf4', padding: '1.5rem', borderRadius: '8px', borderLeft: '4px solid #22c55e' }}>
+              <div style={{ flex: '1 1 300px' }}>
+                <span style={{ fontSize: '0.85rem', color: '#16a34a', fontWeight: 'bold' }}>정기 평가 시 (Quarterly/Half)</span>
+                <h3 style={{ margin: '0.5rem 0', color: '#166534' }}>원가 절감/성과 보고</h3>
+                <p style={{ fontSize: '0.95rem', color: '#14532d', lineHeight: '1.5', margin: 0 }}>설비 소모품 수명 연장이나 가스 사용량 최적화를 통해 해당 파트가 얼마의 비용을 절감했는지 증명하는 성과 평가용 보고입니다.</p>
+              </div>
+              <div style={{ flex: '1 1 300px', background: 'white', padding: '1rem', borderRadius: '6px', border: '1px solid #dcfce7', display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                <div style={{ flex: 1 }}>
+                  <div style={{ fontSize: '0.8rem', color: '#166534', fontWeight: 'bold' }}>연간 누적 절감액</div>
+                  <div style={{ fontSize: '1.25rem', fontWeight: '900', color: '#15803d' }}>₩ 1.5억 <span style={{fontSize:'0.75rem', background: '#22c55e', color: 'white', padding: '2px 4px', borderRadius: '4px'}}>목표 초과</span></div>
+                </div>
+                <div style={{ flex: 1, height: '40px', position: 'relative' }}>
+                  <svg viewBox="0 0 100 40" preserveAspectRatio="none" style={{ width: '100%', height: '100%', overflow: 'visible' }}>
+                    <path d="M 0,35 L 25,30 L 50,20 L 75,10 L 100,5" fill="none" stroke="#22c55e" strokeWidth="3" strokeLinecap="round" />
+                  </svg>
+                </div>
+              </div>
             </article>
 
-            <article style={{ background: '#f5f3ff', padding: '1.5rem', borderRadius: '8px', borderLeft: '4px solid #8b5cf6' }}>
-              <span style={{ fontSize: '0.85rem', color: '#8b5cf6', fontWeight: 'bold' }}>원인 규명 시 (Analysis)</span>
-              <h3 style={{ margin: '0.5rem 0', color: '#4c1d95' }}>불량 분석 보고 (FA Report)</h3>
-              <p style={{ fontSize: '0.95rem', color: '#5b21b6', lineHeight: '1.5', margin: 0 }}>새로운 불량이 발생했을 때 SEM, EDS 등 정밀 분석 장비를 활용하여 물질적/구조적 결함 메커니즘을 밝혀내는 보고서입니다.</p>
+            {/* 6. FA */}
+            <article style={{ display: 'flex', flexWrap: 'wrap', gap: '1.5rem', background: '#f5f3ff', padding: '1.5rem', borderRadius: '8px', borderLeft: '4px solid #8b5cf6' }}>
+              <div style={{ flex: '1 1 300px' }}>
+                <span style={{ fontSize: '0.85rem', color: '#8b5cf6', fontWeight: 'bold' }}>원인 규명 시 (Analysis)</span>
+                <h3 style={{ margin: '0.5rem 0', color: '#4c1d95' }}>불량 분석 보고 (FA Report)</h3>
+                <p style={{ fontSize: '0.95rem', color: '#5b21b6', lineHeight: '1.5', margin: 0 }}>새로운 불량이 발생했을 때 SEM, EDS 등 정밀 분석 장비를 활용하여 물질적/구조적 결함 메커니즘을 밝혀내는 보고서입니다.</p>
+              </div>
+              <div style={{ flex: '1 1 300px', background: 'white', padding: '1rem', borderRadius: '6px', border: '1px solid #ede9fe', display: 'flex', flexDirection: 'column' }}>
+                <div style={{ fontSize: '0.8rem', color: '#5b21b6', fontWeight: 'bold', marginBottom: '0.5rem' }}>이물질(Particle) EDS 성분 검출</div>
+                <div style={{ height: '30px', position: 'relative', marginBottom: '0.5rem' }}>
+                  <svg viewBox="0 0 100 30" preserveAspectRatio="none" style={{ width: '100%', height: '100%', overflow: 'visible' }}>
+                    <path d="M 0,25 L 20,25 L 30,5 L 35,25 L 100,25" fill="none" stroke="#8b5cf6" strokeWidth="2" strokeLinejoin="round" />
+                    <text x="25" y="4" fontSize="6" fill="#6d28d9" fontWeight="bold">Fluorine (F)</text>
+                  </svg>
+                </div>
+                <div style={{ fontSize: '0.75rem', color: '#64748b' }}>결과: O-ring 부식으로 인한 불소(F) 34% 검출 확진</div>
+              </div>
             </article>
           </div>
         </section>
