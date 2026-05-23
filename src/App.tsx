@@ -192,8 +192,33 @@ function App() {
       </header>
 
       <main>
+        <section className="overview-section">
+          <span className="section-label">01. 오프닝 및 학습목표</span>
+          <h2>오늘의 목표는 분석을 더 많이 하는 것이 아니라, 이미 만든 분석을 매주 반복 가능한 보고서 시스템으로 바꾸는 것입니다</h2>
+          <p className="section-intro">
+            앞 강의에서 배운 데이터 병합, 정제, 시각화, 기술 문서 요약은 각각 좋은 도구입니다. 10강에서는 이 도구들이 흩어진 결과물로 끝나지 않도록, 수율 회의와 월간 리뷰에 바로 제출할 수 있는 보고서 흐름으로 묶습니다.
+          </p>
+          <div className="learning-goals-grid" aria-label="학습목표">
+            {lessonGoals.map((item) => (
+              <article className="learning-goal-card" key={item.step}>
+                <span>{item.step}</span>
+                <h3>{item.title}</h3>
+                <p>{item.body}</p>
+              </article>
+            ))}
+          </div>
+          <div className="lesson-timeline" aria-label="40분 강의 진행표">
+            {lessonFlow.map((item) => (
+              <div className="timeline-step" key={item.label}>
+                <strong>{item.time}</strong>
+                <span>{item.label}</span>
+              </div>
+            ))}
+          </div>
+        </section>
+
         <section className="report-sample-section" style={{ background: '#f8fafc', padding: '2rem', borderRadius: '12px', marginBottom: '3rem', border: '1px solid #e2e8f0' }}>
-          <span className="section-label" style={{ display: 'inline-block', background: '#3b82f6', color: 'white', padding: '0.25rem 0.75rem', borderRadius: '99px', fontSize: '0.875rem', fontWeight: 'bold', marginBottom: '1rem' }}>00. 현업 엔지니어의 실제 보고서</span>
+          <span className="section-label" style={{ display: 'inline-block', background: '#3b82f6', color: 'white', padding: '0.25rem 0.75rem', borderRadius: '99px', fontSize: '0.875rem', fontWeight: 'bold', marginBottom: '1rem' }}>01-1. 현업 엔지니어의 실제 보고서</span>
           <h2 style={{ marginTop: 0, color: '#0f172a' }}>"우리는 데이터로 말하고, 보고서로 설득합니다"</h2>
           <p className="section-intro" style={{ marginBottom: '2rem' }}>
             반도체/디스플레이 공정 엔지니어의 핵심 업무 중 하나는 <strong>데이터를 분석해 원인을 찾고, 이를 보고서로 작성하여 유관 부서를 설득하는 것</strong>입니다. AI가 어떻게 이 과정을 도울 수 있는지 알아보기 전에, 실제 현업에서 작성되는 주간/월간 보고서 샘플을 확인해 봅시다.
@@ -341,31 +366,6 @@ function App() {
             <strong>💡 강사의 한마디:</strong> "우리가 지금부터 파이썬과 AI로 만들 결과물이 바로 <strong>이런 보고서에 들어갈 핵심 차트와 데이터 근거들</strong>입니다. 차트를 그리는 것에 그치지 않고, 조치 계획을 세우는 것까지가 엔지니어의 진짜 역할입니다."
           </div>
         </section>
-        <section className="overview-section">
-          <span className="section-label">01. 오프닝 및 학습목표</span>
-          <h2>오늘의 목표는 분석을 더 많이 하는 것이 아니라, 이미 만든 분석을 매주 반복 가능한 보고서 시스템으로 바꾸는 것입니다</h2>
-          <p className="section-intro">
-            앞 강의에서 배운 데이터 병합, 정제, 시각화, 기술 문서 요약은 각각 좋은 도구입니다. 10강에서는 이 도구들이 흩어진 결과물로 끝나지 않도록, 수율 회의와 월간 리뷰에 바로 제출할 수 있는 보고서 흐름으로 묶습니다.
-          </p>
-          <div className="learning-goals-grid" aria-label="학습목표">
-            {lessonGoals.map((item) => (
-              <article className="learning-goal-card" key={item.step}>
-                <span>{item.step}</span>
-                <h3>{item.title}</h3>
-                <p>{item.body}</p>
-              </article>
-            ))}
-          </div>
-          <div className="lesson-timeline" aria-label="40분 강의 진행표">
-            {lessonFlow.map((item) => (
-              <div className="timeline-step" key={item.label}>
-                <strong>{item.time}</strong>
-                <span>{item.label}</span>
-              </div>
-            ))}
-          </div>
-        </section>
-
         <section className="teaching-section">
           <span className="section-label">01-2. 백그라운드 지식</span>
           <h2>엔지니어의 보고서는 목적에 따라 크게 6가지로 나뉩니다</h2>
